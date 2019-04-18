@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F767xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;             ../Drivers/STM32F7xx_HAL_Driver/Inc;             ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy;             ../Drivers/CMSIS/Device/ST/STM32F7xx/Include;             ../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Inc;              ../Drivers/STM32F7xx_HAL_Driver/Inc;              ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy;              ../Drivers/CMSIS/Device/ST/STM32F7xx/Include;              ../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -400,6 +400,11 @@
               <FilePath>..\Src\sdram.c</FilePath>
             </File>
             <File>
+              <FileName>lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\lcd.c</FilePath>
+            </File>
+            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/main.c</FilePath>
@@ -418,11 +423,6 @@
               <FileName>fmc.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/fmc.c</FilePath>
-            </File>
-            <File>
-              <FileName>gfxsimulator.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/gfxsimulator.c</FilePath>
             </File>
             <File>
               <FileName>ltdc.c</FileName>
@@ -448,11 +448,6 @@
               <FileName>stm32f7xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/stm32f7xx_hal_msp.c</FilePath>
-            </File>
-            <File>
-              <FileName>lcd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\lcd.c</FilePath>
             </File>
           </Files>
         </Group>
