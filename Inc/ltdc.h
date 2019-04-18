@@ -35,6 +35,8 @@ extern LTDC_HandleTypeDef hltdc;
 /* USER CODE BEGIN Private defines */
 //LCD帧缓冲区首地址,这里定义在SDRAM里面.
 #define LCD_FRAME_BUF_ADDR			0XC0000000  
+#define LTDC_LCD_ON					HAL_GPIO_WritePin(LCD_BL_GPIO_Port,LCD_BL_Pin,GPIO_PIN_SET);
+#define LTDC_LCD_OFF				HAL_GPIO_WritePin(LCD_BL_GPIO_Port,LCD_BL_Pin,GPIO_PIN_RESET);	
 //LCD LTDC重要参数集
 typedef struct  
 {							 
@@ -58,7 +60,13 @@ extern _ltdc_dev lcdltdc;		            //管理LCD LTDC参数
 void MX_LTDC_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+void LTDC_LCD_Init(void);
+void LTDC_Layer_Window_Config(uint8_t layerx,uint16_t sx,uint16_t sy,uint16_t width,uint16_t height);
+void LTDC_Display_Dir(uint8_t dir);
+void LTDC_Draw_Point(uint16_t x,uint16_t y,uint32_t color);
+void LTDC_LCD_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint32_t color);
+void LTDC_Color_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint16_t *color);
+void LTDC_LCD_Clear(uint32_t color);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

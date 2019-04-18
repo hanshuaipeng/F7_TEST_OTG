@@ -24,6 +24,7 @@ test\lcd.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h
 test\lcd.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h
 test\lcd.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h
 test\lcd.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h
+test\lcd.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma2d.h
 test\lcd.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h
 test\lcd.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h
 test\lcd.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sdram.h
@@ -43,4 +44,5 @@ test\lcd.o: ../Inc/sdram.h
 test\lcd.o: ../Inc/main.h
 test\lcd.o: ../Inc/fmc.h
 test\lcd.o: ../Inc/key.h
+test\lcd.o: ../Inc/lcd.h
 test\lcd.o: ../Inc/ltdc.h

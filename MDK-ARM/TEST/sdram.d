@@ -24,6 +24,7 @@ test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h
 test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h
 test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h
 test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h
+test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma2d.h
 test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h
 test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h
 test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sdram.h
@@ -42,4 +43,6 @@ test\sdram.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 test\sdram.o: ../Inc/sdram.h
 test\sdram.o: ../Inc/key.h
 test\sdram.o: ../Inc/main.h
+test\sdram.o: ../Inc/lcd.h
+test\sdram.o: ../Inc/ltdc.h
 test\sdram.o: ../Inc/fmc.h

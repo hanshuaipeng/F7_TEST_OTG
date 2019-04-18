@@ -253,7 +253,7 @@ void HAL_LTDC_MspDeInit(LTDC_HandleTypeDef* ltdcHandle)
 } 
 
 /* USER CODE BEGIN 1 */
-void LTDC_LCD_Init()
+void LTDC_LCD_Init(void)
 {
     lcdltdc.pwidth=480;			    //面板宽度,单位:像素
     lcdltdc.pheight=272;		    //面板高度,单位:像素
@@ -265,6 +265,147 @@ void LTDC_LCD_Init()
     lcdltdc.vfp=8;				    //垂直前廊
     lcdltdc.pixsize=2;				//每个像素占2个字节
 	ltdc_framebuf[0]=(uint32_t*)&ltdc_lcd_framebuf;
+	LTDC_Layer_Window_Config(0,0,0,lcdltdc.pwidth,lcdltdc.pheight);	//层窗口配置,以LCD面板坐标系为基准,不要随便修改!
+	LTDC_Display_Dir(1);//横屏
+	LTDC_LCD_ON;//lcd背光
+}
+//LTDC,层颜窗口设置,窗口以LCD面板坐标系为基准
+//注意:此函数必须在LTDC_Layer_Parameter_Config之后再设置.
+//layerx:层值,0/1.
+//sx,sy:起始坐标
+//width,height:宽度和高度
+void LTDC_Layer_Window_Config(uint8_t layerx,uint16_t sx,uint16_t sy,uint16_t width,uint16_t height)
+{
+    HAL_LTDC_SetWindowPosition(&hltdc,sx,sy,layerx);  //设置窗口的位置
+    HAL_LTDC_SetWindowSize(&hltdc,width,height,layerx);//设置窗口大小    
+}
+
+//设置LCD显示方向
+//dir:0,竖屏；1,横屏
+void LTDC_Display_Dir(uint8_t dir)
+{
+    lcdltdc.dir=dir; 	//显示方向
+	if(dir==0)			//竖屏
+	{
+		lcdltdc.width=lcdltdc.pheight;
+		lcdltdc.height=lcdltdc.pwidth;	
+	}else if(dir==1)	//横屏
+	{
+		lcdltdc.width=lcdltdc.pwidth;
+		lcdltdc.height=lcdltdc.pheight;
+	}
+}
+/************************************************************************************************
+函数功能：指定位置画点
+入口参数：(x,y)，颜色
+返回值：无
+************************************************************************************************/
+void LTDC_Draw_Point(uint16_t x,uint16_t y,uint32_t color)
+{
+	if( lcdltdc.dir)//横屏
+	{
+		*(uint32_t *)((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.width*y+x))=color;
+	}
+	else
+	{
+		*(uint32_t *)((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.width*(lcdltdc.width-x)+y))=color;
+	}
+}
+
+/**************************************************************************************
+函数功能：LTDC填充矩形,DMA2D填充
+入口参数：(sx,sy),(ex,ey):填充矩形对角坐标,区域大小为:(ex-sx+1)*(ey-sy+1)   
+			color:要填充的颜色
+返回值：无
+有时候需要频繁的调用填充函数，所以为了速度，填充函数采用寄存器版本，
+***************************************************************************************/
+void LTDC_LCD_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint32_t color)
+{
+	uint32_t psx,psy,pex,pey;	//以LCD面板为基准的坐标系,不随横竖屏变化而变化
+	uint32_t timeout=0; 
+	uint16_t offline;
+	uint32_t addr; 
+	//坐标系转换
+	if(lcdltdc.dir)	//横屏
+	{
+		psx=sx;psy=sy;
+		pex=ex;pey=ey;
+	}else			//竖屏
+	{
+		psx=sy;psy=lcdltdc.pheight-ex-1;
+		pex=ey;pey=lcdltdc.pheight-sx-1;
+	}
+	offline=lcdltdc.pwidth-(pex-psx+1);
+	addr=((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.pwidth*psy+psx));
+	__HAL_RCC_DMA2D_CLK_ENABLE();	//使能DM2D时钟
+	DMA2D->CR&=~(DMA2D_CR_START);	//先停止DMA2D
+	DMA2D->CR=DMA2D_R2M;			//寄存器到存储器模式
+	DMA2D->OPFCCR=LTDC_PIXEL_FORMAT_RGB565;	//设置颜色格式
+	DMA2D->OOR=offline;				//设置行偏移 
+
+	DMA2D->OMAR=addr;				//输出存储器地址
+	DMA2D->NLR=(pey-psy+1)|((pex-psx+1)<<16);	//设定行数寄存器
+	DMA2D->OCOLR=color;						//设定输出颜色寄存器 
+	DMA2D->CR|=DMA2D_CR_START;				//启动DMA2D
+	while((DMA2D->ISR&(DMA2D_FLAG_TC))==0)	//等待传输完成
+	{
+		timeout++;
+		if(timeout>0X1FFFFF)break;	//超时退出
+	} 
+	DMA2D->IFCR|=DMA2D_FLAG_TC;		//清除传输完成标志 		
+}
+/****************************************************************************
+函数功能：在指定区域内填充指定颜色块,DMA2D填充
+入口参数：(sx,sy),(ex,ey):填充矩形对角坐标,区域大小为:(ex-sx+1)*(ey-sy+1)   
+			color:要填充的颜色数组首地址
+返回值：无
+注意:sx,ex,不能大于lcddev.width-1;sy,ey,不能大于lcddev.height-1!!!
+有时候需要频繁的调用填充函数，所以为了速度，填充函数采用寄存器版本，
+*****************************************************************************/
+void LTDC_Color_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint16_t *color)
+{
+	uint32_t psx,psy,pex,pey;	//以LCD面板为基准的坐标系,不随横竖屏变化而变化
+	uint32_t timeout=0; 
+	uint16_t offline;
+	uint32_t addr; 
+	//坐标系转换
+	if(lcdltdc.dir)	//横屏
+	{
+		psx=sx;psy=sy;
+		pex=ex;pey=ey;
+	}else			//竖屏
+	{
+		psx=sy;psy=lcdltdc.pheight-ex-1;
+		pex=ey;pey=lcdltdc.pheight-sx-1;
+	}
+	offline=lcdltdc.pwidth-(pex-psx+1);
+	addr=((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.pwidth*psy+psx));
+	__HAL_RCC_DMA2D_CLK_ENABLE();	//使能DM2D时钟
+	DMA2D->CR&=~(DMA2D_CR_START);	//先停止DMA2D
+	DMA2D->CR=DMA2D_M2M;			//存储器到存储器模式
+	DMA2D->FGPFCCR=LTDC_PIXEL_FORMAT_RGB565;	//设置颜色格式
+	DMA2D->FGOR=0;					//前景层行偏移为0
+	DMA2D->OOR=offline;				//设置行偏移 
+
+	DMA2D->FGMAR=(uint32_t)color;		//源地址
+	DMA2D->OMAR=addr;				//输出存储器地址
+	DMA2D->NLR=(pey-psy+1)|((pex-psx+1)<<16);	//设定行数寄存器 
+	DMA2D->CR|=DMA2D_CR_START;					//启动DMA2D
+	while((DMA2D->ISR&(DMA2D_FLAG_TC))==0)		//等待传输完成
+	{
+		timeout++;
+		if(timeout>0X1FFFFF)break;	//超时退出
+	} 
+	DMA2D->IFCR|=DMA2D_FLAG_TC;				//清除传输完成标志  	
+}
+/************************************************
+函数功能：清屏
+入口参数：color:要填充的颜色
+返回值：无
+*************************************************/
+void LTDC_LCD_Clear(uint32_t color)
+{
+	LTDC_LCD_Fill(0,0,lcdltdc.width-1,lcdltdc.height-1,color);
 }
 /* USER CODE END 1 */
 

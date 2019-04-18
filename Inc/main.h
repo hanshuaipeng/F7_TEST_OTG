@@ -36,6 +36,7 @@ extern "C" {
 #include <stdio.h>
 #include "sdram.h"
 #include "key.h"
+#include "lcd.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

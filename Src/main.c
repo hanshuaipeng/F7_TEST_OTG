@@ -106,6 +106,7 @@ int main(void)
   MX_LTDC_Init();
   /* USER CODE BEGIN 2 */
   SDRAM_Init();
+  LTDC_LCD_Init();
 	HAL_UART_Receive_IT(&huart1,aRecBuff,1);
 	printf("uart test is run!!!\r\n");
     HAL_UART_Transmit_DMA(&huart1,data,strlen((char*)data));
