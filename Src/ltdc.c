@@ -58,10 +58,10 @@ void MX_LTDC_Init(void)
   pLayerCfg.WindowY0 = 0;
   pLayerCfg.WindowY1 = 272;
   pLayerCfg.PixelFormat = LTDC_PIXEL_FORMAT_RGB565;
-  pLayerCfg.Alpha = 255;
+  pLayerCfg.Alpha = 0xff;
   pLayerCfg.Alpha0 = 0;
-  pLayerCfg.BlendingFactor1 = LTDC_BLENDING_FACTOR1_PAxCA;
-  pLayerCfg.BlendingFactor2 = LTDC_BLENDING_FACTOR2_PAxCA;
+  pLayerCfg.BlendingFactor1 = LTDC_BLENDING_FACTOR1_CA;
+  pLayerCfg.BlendingFactor2 = LTDC_BLENDING_FACTOR2_CA;
   pLayerCfg.FBStartAdress = 0xC0000000 ;
   pLayerCfg.ImageWidth = 480;
   pLayerCfg.ImageHeight = 272;
@@ -225,7 +225,7 @@ void LTDC_LCD_Init(void)
 	ltdc_framebuf[0]=(uint32_t*)&ltdc_lcd_framebuf;
 	LTDC_Select_Layer(0);
 	LTDC_Layer_Window_Config(0,0,0,lcdltdc.pwidth,lcdltdc.pheight);	//层窗口配置,以LCD面板坐标系为基准,不要随便修改!
-	LTDC_Display_Dir(1);//横屏
+    LTDC_Display_Dir(1);//横屏
 	LTDC_LCD_ON;//lcd背光
 }
 //选择层
@@ -274,11 +274,11 @@ void LTDC_Draw_Point(uint16_t x,uint16_t y,uint32_t color)
 {
 	if( lcdltdc.dir)//横屏
 	{
-		*(uint32_t *)((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.width*y+x))=color;
+		*(uint16_t *)((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.width*y+x))=color;
 	}
 	else
 	{
-		*(uint32_t *)((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.width*(lcdltdc.width-x)+y))=color;
+		*(uint16_t *)((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.width*(lcdltdc.width-x)+y))=color;
 	}
 }
 /************************************************************************************************
@@ -390,6 +390,7 @@ void LTDC_Color_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint16_t *c
 void LTDC_LCD_Clear(uint32_t color)
 {
 	LTDC_LCD_Fill(0,0,lcdltdc.width-1,lcdltdc.height-1,color);
+    BACK_COLOR=color;
 }
 /* USER CODE END 1 */
 

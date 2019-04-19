@@ -24,6 +24,7 @@ test\gfxsimulator.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h
 test\gfxsimulator.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h
 test\gfxsimulator.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h
 test\gfxsimulator.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h
+test\gfxsimulator.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma2d.h
 test\gfxsimulator.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h
 test\gfxsimulator.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h
 test\gfxsimulator.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sdram.h
@@ -43,3 +44,5 @@ test\gfxsimulator.o: ../Inc/sdram.h
 test\gfxsimulator.o: ../Inc/main.h
 test\gfxsimulator.o: ../Inc/fmc.h
 test\gfxsimulator.o: ../Inc/key.h
+test\gfxsimulator.o: ../Inc/lcd.h
+test\gfxsimulator.o: ../Inc/ltdc.h

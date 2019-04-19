@@ -101,7 +101,6 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_USART1_UART_Init();
- 
   MX_TIM3_Init();
   MX_FMC_Init();
   MX_LTDC_Init();
@@ -112,7 +111,7 @@ int main(void)
 	printf("uart test is run!!!\r\n");
     HAL_UART_Transmit_DMA(&huart1,data,strlen((char*)data));
     HAL_TIM_Base_Start_IT(&htim3);
-    LTDC_LCD_Clear(GREEN);
+    LTDC_LCD_Clear(BLUE);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -122,6 +121,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+//        LTDC_ShowChar(50,50,'a',32,0);
+      LTDC_ShowStr(0,0,32,"abcdefg");
 	  Get_KeyVul();
       HAL_Delay(50);
   }
@@ -177,12 +178,12 @@ void SystemClock_Config(void)
     Error_Handler();
   }
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_LTDC|RCC_PERIPHCLK_USART1;
-  PeriphClkInitStruct.PLLSAI.PLLSAIN = 108;
-  PeriphClkInitStruct.PLLSAI.PLLSAIR = 3;
+  PeriphClkInitStruct.PLLSAI.PLLSAIN = 100;
+  PeriphClkInitStruct.PLLSAI.PLLSAIR = 5;
   PeriphClkInitStruct.PLLSAI.PLLSAIQ = 2;
   PeriphClkInitStruct.PLLSAI.PLLSAIP = RCC_PLLSAIP_DIV2;
   PeriphClkInitStruct.PLLSAIDivQ = 1;
-  PeriphClkInitStruct.PLLSAIDivR = RCC_PLLSAIDIVR_8;
+  PeriphClkInitStruct.PLLSAIDivR = RCC_PLLSAIDIVR_4;
   PeriphClkInitStruct.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK2;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
