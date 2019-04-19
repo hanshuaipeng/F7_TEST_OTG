@@ -221,26 +221,37 @@ void LTDC_LCD_Init(void)
     lcdltdc.vbp=8;				    //垂直后廊
     lcdltdc.hfp=5;				    //水平前廊
     lcdltdc.vfp=8;				    //垂直前廊
-    lcdltdc.activelayer=0;
     lcdltdc.pixsize=2;				//每个像素占2个字节
 	ltdc_framebuf[0]=(uint32_t*)&ltdc_lcd_framebuf;
+	LTDC_Select_Layer(0);
 	LTDC_Layer_Window_Config(0,0,0,lcdltdc.pwidth,lcdltdc.pheight);	//层窗口配置,以LCD面板坐标系为基准,不要随便修改!
 	LTDC_Display_Dir(1);//横屏
 	LTDC_LCD_ON;//lcd背光
 }
-//LTDC,层颜窗口设置,窗口以LCD面板坐标系为基准
-//注意:此函数必须在LTDC_Layer_Parameter_Config之后再设置.
-//layerx:层值,0/1.
-//sx,sy:起始坐标
-//width,height:宽度和高度
+//选择层
+//layerx:层号;0,第一层;1,第二层;
+void LTDC_Select_Layer(uint8_t layerx)
+{
+	lcdltdc.activelayer=layerx;
+}
+/************************************************************************************************
+函数功能：LTDC,层颜窗口设置,窗口以LCD面板坐标系为基准
+入口参数：layerx:层值,0/1.
+			sx,sy:起始坐标
+			width,height:宽度和高度
+返回值：无
+注意:此函数必须在LTDC_Layer_Parameter_Config之后再设置.
+************************************************************************************************/
 void LTDC_Layer_Window_Config(uint8_t layerx,uint16_t sx,uint16_t sy,uint16_t width,uint16_t height)
 {
     HAL_LTDC_SetWindowPosition(&hltdc,sx,sy,layerx);  //设置窗口的位置
     HAL_LTDC_SetWindowSize(&hltdc,width,height,layerx);//设置窗口大小    
 }
-
-//设置LCD显示方向
-//dir:0,竖屏；1,横屏
+/************************************************************************************************
+函数功能：设置LCD显示方向
+入口参数：dir:0,竖屏；1,横屏
+返回值：无
+************************************************************************************************/
 void LTDC_Display_Dir(uint8_t dir)
 {
     lcdltdc.dir=dir; 	//显示方向
@@ -270,7 +281,21 @@ void LTDC_Draw_Point(uint16_t x,uint16_t y,uint32_t color)
 		*(uint32_t *)((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.width*(lcdltdc.width-x)+y))=color;
 	}
 }
-
+/************************************************************************************************
+函数功能：读点函数
+入口参数：x,y:读取点的坐标
+返回值：颜色值
+************************************************************************************************/
+uint32_t LTDC_Read_Point(uint16_t x,uint16_t y)
+{ 
+	if(lcdltdc.dir)	//横屏
+	{
+		return *(uint16_t*)((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.pwidth*y+x));
+	}else 			//竖屏
+	{
+		return *(uint16_t*)((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.pwidth*(lcdltdc.pheight-x-1)+y)); 
+	}
+}
 /**************************************************************************************
 函数功能：LTDC填充矩形,DMA2D填充
 入口参数：(sx,sy),(ex,ey):填充矩形对角坐标,区域大小为:(ex-sx+1)*(ey-sy+1)   

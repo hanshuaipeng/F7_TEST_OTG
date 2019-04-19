@@ -61,9 +61,11 @@ void MX_LTDC_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 void LTDC_LCD_Init(void);
+void LTDC_Select_Layer(uint8_t layerx);
 void LTDC_Layer_Window_Config(uint8_t layerx,uint16_t sx,uint16_t sy,uint16_t width,uint16_t height);
 void LTDC_Display_Dir(uint8_t dir);
 void LTDC_Draw_Point(uint16_t x,uint16_t y,uint32_t color);
+uint32_t LTDC_Read_Point(uint16_t x,uint16_t y);
 void LTDC_LCD_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint32_t color);
 void LTDC_Color_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint16_t *color);
 void LTDC_LCD_Clear(uint32_t color);
