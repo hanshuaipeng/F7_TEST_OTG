@@ -225,8 +225,9 @@ void LTDC_LCD_Init(void)
 	ltdc_framebuf[0]=(uint32_t*)&ltdc_lcd_framebuf;
 	LTDC_Select_Layer(0);
 	LTDC_Layer_Window_Config(0,0,0,lcdltdc.pwidth,lcdltdc.pheight);	//层窗口配置,以LCD面板坐标系为基准,不要随便修改!
-    LTDC_Display_Dir(1);//横屏
+    LTDC_Display_Dir(0);//横屏
 	LTDC_LCD_ON;//lcd背光
+    LTDC_LCD_Clear(WHITE);
 }
 //选择层
 //layerx:层号;0,第一层;1,第二层;
@@ -269,16 +270,36 @@ void LTDC_Display_Dir(uint8_t dir)
 函数功能：指定位置画点
 入口参数：(x,y)，颜色
 返回值：无
+横屏扫描方向为从左到右，从上到下，显存首地址和坐标原点都在左上角
+(0,0)  ----------------
+ buff0 | →→→→→→→→→→→→→|
+       |↓             |
+       |↓             |
+       |↓             |
+       |↓             |
+       ----------------
+横屏时每行480个点，y行为480*y，此为要显示的行坐标。 x即为显示的列坐标。则在显存的位置为480*y+x  
+-----------------------------------------------
+竖屏时扫描方向为从右到左，从上到下,(横屏向右旋转)
+(0,0)      buff首地址
+|-------↓↓|
+|--------↓|
+|--------↓|
+|--------↓|
+|--------↓|
+|--------↓|
+|--------↓|
+竖屏时，480*(272-x)，即为要显示的行坐标，在显存的位置为480*(272-x)+y
 ************************************************************************************************/
 void LTDC_Draw_Point(uint16_t x,uint16_t y,uint32_t color)
 {
 	if( lcdltdc.dir)//横屏
-	{
-		*(uint16_t *)((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.width*y+x))=color;
+	{                                                                                          
+		*(uint16_t *)((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.pwidth*y+x))=color;
 	}
-	else
-	{
-		*(uint16_t *)((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.width*(lcdltdc.width-x)+y))=color;
+	else                                                                                        
+	{                                                                                    
+		*(uint16_t *)((uint32_t)ltdc_framebuf[lcdltdc.activelayer]+lcdltdc.pixsize*(lcdltdc.pwidth*(lcdltdc.pheight-x)+y))=color;
 	}
 }
 /************************************************************************************************

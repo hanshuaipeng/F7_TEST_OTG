@@ -111,7 +111,6 @@ int main(void)
 	printf("uart test is run!!!\r\n");
     HAL_UART_Transmit_DMA(&huart1,data,strlen((char*)data));
     HAL_TIM_Base_Start_IT(&htim3);
-    LTDC_LCD_Clear(BLUE);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -121,8 +120,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//        LTDC_ShowChar(50,50,'a',32,0);
+      LTDC_ShowxNum(0,64,50,5,16,0x80);
       LTDC_ShowStr(0,0,32,"abcdefg");
+      LTDC_ShowStr(0,32,32,"abcdefg");
 	  Get_KeyVul();
       HAL_Delay(50);
   }
