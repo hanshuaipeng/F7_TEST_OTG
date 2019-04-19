@@ -46,3 +46,4 @@ test\lcd.o: ../Inc/fmc.h
 test\lcd.o: ../Inc/key.h
 test\lcd.o: ../Inc/lcd.h
 test\lcd.o: ../Inc/ltdc.h
+test\lcd.o: ../Inc/font.h
