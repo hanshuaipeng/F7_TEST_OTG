@@ -35,6 +35,7 @@ test\gpio.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_ltdc.h
 test\gpio.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_ltdc_ex.h
 test\gpio.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h
 test\gpio.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h
+test\gpio.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h
 test\gpio.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h
 test\gpio.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h
 test\gpio.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h
@@ -46,3 +47,5 @@ test\gpio.o: ../Inc/fmc.h
 test\gpio.o: ../Inc/key.h
 test\gpio.o: ../Inc/lcd.h
 test\gpio.o: ../Inc/ltdc.h
+test\gpio.o: ../Inc/w25q256.h
+test\gpio.o: ../Inc/quadspi.h

@@ -34,6 +34,7 @@ test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_ltdc.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_ltdc_ex.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h
+test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h
@@ -45,6 +46,8 @@ test\main.o: ../Inc/fmc.h
 test\main.o: ../Inc/key.h
 test\main.o: ../Inc/lcd.h
 test\main.o: ../Inc/ltdc.h
+test\main.o: ../Inc/w25q256.h
+test\main.o: ../Inc/quadspi.h
 test\main.o: ../Inc/dma.h
 test\main.o: ../Inc/tim.h
 test\main.o: ../Inc/usart.h

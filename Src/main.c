@@ -22,6 +22,7 @@
 #include "main.h"
 #include "dma.h"
 #include "ltdc.h"
+#include "quadspi.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -73,6 +74,8 @@ int main(void)
   /* USER CODE BEGIN 1 */
     uint8_t *data="uart dma test\r\n";
     uint32_t i;
+	uint8_t *test="w25q256 test";
+	uint8_t read[20];
   /* USER CODE END 1 */
 
   /* Enable I-Cache---------------------------------------------------------*/
@@ -103,14 +106,20 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM3_Init();
   MX_FMC_Init();
+  
   MX_LTDC_Init();
+  MX_QUADSPI_Init();
   /* USER CODE BEGIN 2 */
     SDRAM_Init();
+	W25QXX_Init();
     LTDC_LCD_Init();
 	HAL_UART_Receive_IT(&huart1,aRecBuff,1);
 	printf("uart test is run!!!\r\n");
     HAL_UART_Transmit_DMA(&huart1,data,strlen((char*)data));
     HAL_TIM_Base_Start_IT(&htim3);
+	LTDC_ShowStr(100,0,32,"F7 TEST");
+//	LTDC_ShowStr(0,0,32,"abcdefg");
+//    LTDC_ShowStr(0,32,32,"abcdefg");
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -120,10 +129,29 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-      LTDC_ShowxNum(0,64,50,5,16,0x80);
-      LTDC_ShowStr(0,0,32,"abcdefg");
-      LTDC_ShowStr(0,32,32,"abcdefg");
-	  Get_KeyVul();
+      
+	  switch(Key_Scan(0))
+      {
+          case KEY0_PASS:
+              W25QXX_Write(test,W25Q256_SIZE-100,strlen(test));
+              printf("key0 is pass\r\n");
+          break;
+          case KEY1_PASS:
+             W25QXX_Read(read,W25Q256_SIZE-100,strlen(test));
+			LTDC_ShowStr(0,32,32,read);
+              printf("key1 is pass\r\n");
+          break;
+          case KEY2_PASS:
+             
+              printf("key2 is pass\r\n");
+          break;
+          case WKUP_PASS:
+             
+              printf("wk_up is pass\r\n");
+          break;
+          default : break;
+      }
+//	  Get_KeyVul();
       HAL_Delay(50);
   }
   /* USER CODE END 3 */

@@ -48,20 +48,20 @@ void Get_KeyVul(void)
     switch(Key_Scan(0))
       {
           case KEY0_PASS:
-              LTDC_LCD_Clear(WHITE);
+              
           
               printf("key0 is pass\r\n");
           break;
           case KEY1_PASS:
-              LTDC_LCD_Clear(RED);
+             
               printf("key1 is pass\r\n");
           break;
           case KEY2_PASS:
-              LTDC_LCD_Clear(YELLOW);
+             
               printf("key2 is pass\r\n");
           break;
           case WKUP_PASS:
-              LTDC_LCD_Clear(BLUE);
+             
               printf("wk_up is pass\r\n");
           break;
           default : break;

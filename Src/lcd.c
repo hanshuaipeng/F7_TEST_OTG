@@ -2,8 +2,8 @@
 #include "font.h"
 
 //LCD的画笔颜色和背景色	   
-uint32_t POINT_COLOR=0xFF000000;		//画笔颜色
-uint32_t BACK_COLOR =0xFFFFFFFF;  	//背景色 
+uint32_t POINT_COLOR=BLACK;		//画笔颜色
+uint32_t BACK_COLOR =WHITE;  	//背景色 
 /************************************************************************************************
 函数功能：指定位置显示一个字符
 入口参数：（x,y）坐标
