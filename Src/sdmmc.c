@@ -80,14 +80,14 @@ void HAL_SD_MspInit(SD_HandleTypeDef* sdHandle)
     GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11 
                           |GPIO_PIN_12;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF12_SDMMC1;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
     GPIO_InitStruct.Pin = GPIO_PIN_2;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF12_SDMMC1;
     HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
@@ -213,7 +213,7 @@ uint8_t SD_ReadBlocks_DMA(uint8_t *buf,uint32_t sector,uint32_t cnt)
     err=HAL_SD_ReadBlocks_DMA(&hsd1,buf,sector,cnt);//通过DMA读取SD卡一个扇区
     if(err==0)//读取成功
     {
-		while(HAL_SD_GetCardState(&hsd1)!=HAL_SD_CARD_RECEIVING)
+		while(HAL_SD_GetCardState(&hsd1)!=HAL_SD_CARD_TRANSFER)
 		{
 			timeout++;
 			if(timeout>0x10000000)
@@ -239,7 +239,7 @@ uint8_t SD_WriteBlocks_DMA(uint8_t *buf,uint32_t sector,uint32_t cnt)
     err=HAL_SD_WriteBlocks_DMA(&hsd1,buf,sector,cnt);//通过DMA写SD卡一个扇区
     if(err==0)//写成功
     {
-		while(HAL_SD_GetCardState(&hsd1)!=HAL_SD_CARD_RECEIVING)
+		while(HAL_SD_GetCardState(&hsd1)!=HAL_SD_CARD_TRANSFER)
 		{
 			timeout++;
 			if(timeout>0x10000000)
@@ -302,6 +302,11 @@ uint8_t SD_WriteDisk(uint8_t *buf,uint32_t sector,uint8_t cnt)
     }
     return sta;
 } 
+void read_sdinfo()
+{
+	SD_GetCardInfo(&SDCardInfo);
+	printf("BlockNbr:%d\r\n",SDCardInfo.BlockNbr);
+}
 /* USER CODE END 1 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

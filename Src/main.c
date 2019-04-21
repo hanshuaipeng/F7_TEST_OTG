@@ -77,6 +77,9 @@ int main(void)
     uint32_t i;
 	uint8_t *test="w25q256 test";
 	uint8_t read[20];
+	uint8_t buf[512];
+	uint8_t se[512];
+	uint32_t sd_size;
   /* USER CODE END 1 */
 
   /* Enable I-Cache---------------------------------------------------------*/
@@ -119,6 +122,11 @@ int main(void)
     HAL_UART_Transmit_DMA(&huart1,data,strlen((char*)data));
     HAL_TIM_Base_Start_IT(&htim3);
 	LTDC_ShowStr(100,0,32,"F7 TEST");
+	
+	for(i=0;i<512;i++)
+	{
+		se[i]=i;
+	}
 //	LTDC_ShowStr(0,0,32,"abcdefg");
 //    LTDC_ShowStr(0,32,32,"abcdefg");
   /* USER CODE END 2 */
@@ -143,11 +151,19 @@ int main(void)
               printf("key1 is pass\r\n");
           break;
           case KEY2_PASS:
-             
+//             read_sdinfo();
+		  SD_WriteDisk(se,0,1);
               printf("key2 is pass\r\n");
           break;
           case WKUP_PASS:
-             
+             if(SD_ReadDisk(buf,0,1)==HAL_SD_CARD_TRANSFER)	//读取0扇区的内容
+			{	
+				LTDC_ShowStr(30,190,16,"USART1 Sending Data...");
+				printf("SECTOR 0 DATA:\r\n");
+				for(sd_size=0;sd_size<512;sd_size++)printf("%x ",buf[sd_size]);//打印0扇区数据    	   
+				printf("\r\nDATA ENDED\r\n");
+				LTDC_ShowStr(30,190,16,"USART1 Send Data Over!");
+			}
               printf("wk_up is pass\r\n");
           break;
           default : break;
