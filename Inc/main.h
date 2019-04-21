@@ -38,6 +38,7 @@ extern "C" {
 #include "key.h"
 #include "lcd.h"
 #include "w25q256.h"
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

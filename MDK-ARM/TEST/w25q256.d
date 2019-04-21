@@ -36,6 +36,8 @@ test\w25q256.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_ltdc_ex.h
 test\w25q256.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h
 test\w25q256.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h
 test\w25q256.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h
+test\w25q256.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sd.h
+test\w25q256.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_sdmmc.h
 test\w25q256.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h
 test\w25q256.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h
 test\w25q256.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h
@@ -48,4 +50,5 @@ test\w25q256.o: ../Inc/key.h
 test\w25q256.o: ../Inc/lcd.h
 test\w25q256.o: ../Inc/ltdc.h
 test\w25q256.o: ../Inc/w25q256.h
+test\w25q256.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\w25q256.o: ../Inc/quadspi.h
