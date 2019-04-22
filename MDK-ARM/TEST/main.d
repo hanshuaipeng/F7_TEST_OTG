@@ -7,7 +7,7 @@ test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h
 test\main.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h
 test\main.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f767xx.h
 test\main.o: ../Drivers/CMSIS/Include/core_cm7.h
-test\main.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+test\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 test\main.o: ../Drivers/CMSIS/Include/cmsis_version.h
 test\main.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 test\main.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -15,7 +15,7 @@ test\main.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 test\main.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-test\main.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+test\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_exti.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h
@@ -41,7 +41,7 @@ test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h
-test\main.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+test\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 test\main.o: ../Inc/sdram.h
 test\main.o: ../Inc/main.h
 test\main.o: ../Inc/fmc.h
@@ -50,7 +50,8 @@ test\main.o: ../Inc/lcd.h
 test\main.o: ../Inc/ltdc.h
 test\main.o: ../Inc/w25q256.h
 test\main.o: ../Inc/quadspi.h
-test\main.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+test\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+test\main.o: ../Inc/malloc.h
 test\main.o: ../Inc/dma.h
 test\main.o: ../Inc/sdmmc.h
 test\main.o: ../Inc/tim.h

@@ -117,6 +117,9 @@ int main(void)
     SDRAM_Init();
 	W25QXX_Init();
     LTDC_LCD_Init();
+	my_mem_init(SRAMIN);		    //初始化内部内存池
+	my_mem_init(SRAMEX);		    //初始化外部内存池
+	my_mem_init(SRAMDTCM);		    //初始化DTCM内存池
 	HAL_UART_Receive_IT(&huart1,aRecBuff,1);
 	printf("uart test is run!!!\r\n");
     HAL_UART_Transmit_DMA(&huart1,data,strlen((char*)data));

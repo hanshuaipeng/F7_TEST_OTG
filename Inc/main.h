@@ -39,6 +39,7 @@ extern "C" {
 #include "lcd.h"
 #include "w25q256.h"
 #include "string.h"
+#include "malloc.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
