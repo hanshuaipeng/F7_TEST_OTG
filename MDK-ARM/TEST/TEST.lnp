@@ -44,6 +44,10 @@
 "test\stm32f7xx_hal_i2c_ex.o"
 "test\stm32f7xx_hal_exti.o"
 "test\system_stm32f7xx.o"
+"test\diskio.o"
+"test\ff.o"
+"test\ffsystem.o"
+"test\ffunicode.o"
 --library_type=microlib --strict --scatter "TEST\TEST.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
