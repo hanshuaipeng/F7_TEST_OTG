@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F767xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;                       ../Drivers/STM32F7xx_HAL_Driver/Inc;                       ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy;                       ../Drivers/CMSIS/Device/ST/STM32F7xx/Include;                       ../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Inc;                         ../Drivers/STM32F7xx_HAL_Driver/Inc;                         ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy;                         ../Drivers/CMSIS/Device/ST/STM32F7xx/Include;                         ../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -413,6 +413,11 @@
               <FilePath>..\Src\w25q256.c</FilePath>
             </File>
             <File>
+              <FileName>malloc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\malloc.c</FilePath>
+            </File>
+            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/main.c</FilePath>
@@ -472,11 +477,6 @@
               <FileType>1</FileType>
               <FilePath>../Src/stm32f7xx_hal_msp.c</FilePath>
             </File>
-            <File>
-              <FileName>malloc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\malloc.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -491,6 +491,11 @@
               <FileName>stm32f7xx_ll_fmc.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f7xx_hal_nand.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c</FilePath>
             </File>
             <File>
               <FileName>stm32f7xx_hal_sdram.c</FileName>

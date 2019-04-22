@@ -26,8 +26,9 @@ test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma2d.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h
-test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sdram.h
+test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_nand.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_fmc.h
+test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sdram.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h
 test\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_ltdc.h
@@ -53,6 +54,7 @@ test\main.o: ../Inc/quadspi.h
 test\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\main.o: ../Inc/malloc.h
 test\main.o: ../Inc/dma.h
+test\main.o: ../Inc/gfxsimulator.h
 test\main.o: ../Inc/sdmmc.h
 test\main.o: ../Inc/tim.h
 test\main.o: ../Inc/usart.h

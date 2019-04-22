@@ -25,8 +25,9 @@ test\stm32f7xx_hal_i2c.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cort
 test\stm32f7xx_hal_i2c.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma2d.h
 test\stm32f7xx_hal_i2c.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h
 test\stm32f7xx_hal_i2c.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h
-test\stm32f7xx_hal_i2c.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sdram.h
+test\stm32f7xx_hal_i2c.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_nand.h
 test\stm32f7xx_hal_i2c.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_fmc.h
+test\stm32f7xx_hal_i2c.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sdram.h
 test\stm32f7xx_hal_i2c.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h
 test\stm32f7xx_hal_i2c.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h
 test\stm32f7xx_hal_i2c.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_ltdc.h
