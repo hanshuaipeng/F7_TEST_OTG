@@ -6,12 +6,11 @@
 #define KEY2        HAL_GPIO_ReadPin(KEY2_GPIO_Port,KEY2_Pin) //KEY2°´¼üPC13
 #define WK_UP       HAL_GPIO_ReadPin(WK_UP_GPIO_Port,WK_UP_Pin)  //WKUP°´¼üPA0
 
-#define KEY0_PASS   1
-#define KEY1_PASS   2
-#define KEY2_PASS   3
-#define WKUP_PASS   4
+#define KEY0_PRES   1
+#define KEY1_PRES   2
+#define KEY2_PRES   3
+#define WKUP_PRES   4
 uint8_t Key_Scan(uint8_t mode);
-void Get_KeyVul(void);
 #endif
 
 

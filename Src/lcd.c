@@ -50,7 +50,7 @@ void LTDC_ShowChar(uint16_t x,uint16_t y,uint8_t num,uint8_t size,uint8_t mode)
 			size：显示的大小12/16/24/32
 返回值：无
 ************************************************************************************************/
-void LTDC_ShowStr(uint16_t x,uint16_t y,uint8_t size,uint8_t *str)
+void LTDC_ShowString(uint16_t x,uint16_t y,uint8_t size,uint8_t *str)
 {
 	 while((*str<='~')&&(*str>=' '))//判断是不是非法字符!
     {       

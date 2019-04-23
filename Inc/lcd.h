@@ -20,7 +20,7 @@
 extern uint32_t BACK_COLOR;
 extern uint32_t POINT_COLOR;
 void LTDC_ShowChar(uint16_t x,uint16_t y,uint8_t num,uint8_t size,uint8_t mode);
-void LTDC_ShowStr(uint16_t x,uint16_t y,uint8_t size,uint8_t *str);
+void LTDC_ShowString(uint16_t x,uint16_t y,uint8_t size,uint8_t *str);
 void LTDC_ShowNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t size);
 void LTDC_ShowxNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t size,uint8_t mode);
 void LTDC_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);

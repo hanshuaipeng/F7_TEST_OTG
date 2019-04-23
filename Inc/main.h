@@ -40,6 +40,8 @@ extern "C" {
 #include "w25q256.h"
 #include "string.h"
 #include "malloc.h"
+#include "ff.h"			/* Obtains integer types */
+#include "diskio.h"		/* Declarations of disk functions */
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

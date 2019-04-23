@@ -74,7 +74,11 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	
+	FIL fil;
+	FATFS fs;
+	uint8_t res;
+	uint8_t write[19]="this is write test";
+	UINT wr_bw;
   /* USER CODE END 1 */
 
   /* Enable I-Cache---------------------------------------------------------*/
@@ -118,11 +122,17 @@ int main(void)
 	my_mem_init(SRAMDTCM);		    //³õÊ¼»¯DTCMÄÚ´æ³Ø
 	HAL_UART_Receive_IT(&huart1,aRecBuff,1);
     HAL_TIM_Base_Start_IT(&htim3);
-	LTDC_ShowStr(100,0,32,"F7 TEST");
-
- 	
-//	LTDC_ShowStr(0,0,32,"abcdefg");
-//    LTDC_ShowStr(0,32,32,"abcdefg");
+	LTDC_ShowString(100,0,32,"F7 TEST");
+	
+	res=f_mount(&fs,"0:",1);
+	if(res)
+	{
+		printf("mount error %d\r\n",res);
+	}
+	else
+	{
+		printf("mount success\r\n");
+	}
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -134,17 +144,44 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	  switch(Key_Scan(0))
       {
-          case KEY0_PASS:
-              printf("key0 is pass\r\n");
+          case KEY0_PRES:
+			  res=f_open(&fil,"0:/fatfstest.txt",FA_CREATE_ALWAYS|FA_WRITE);
+				if(res)
+				{
+					printf("open error %d\r\n",res);
+				}
+				else
+				{
+					printf("open success\r\n");
+				}
+              printf("key0 is press\r\n");
           break;
-          case KEY1_PASS:
-              printf("key1 is pass\r\n");
+          case KEY1_PRES:
+			   res=f_write(&fil,write,19,&wr_bw);
+				if(res)
+				{
+					printf("write error %d\r\n",res);
+				}
+				else
+				{
+					printf("write success\r\n");
+				}
+              printf("key1 is press\r\n");
           break;
-          case KEY2_PASS:
-              printf("key2 is pass\r\n");
+          case KEY2_PRES:
+			  res=f_close(&fil);
+				if(res)
+				{
+					printf("close error %d\r\n",res);
+				}
+				else
+				{
+					printf("close success\r\n");
+				}
+              printf("key2 is press\r\n");
           break;
-          case WKUP_PASS:
-              printf("wk_up is pass\r\n");
+          case WKUP_PRES:
+              printf("wk_up is press\r\n");
           break;
           default : break;
       }
