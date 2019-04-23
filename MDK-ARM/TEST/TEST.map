@@ -3034,67 +3034,67 @@ Image Symbol Table
     i.load_xdir                              0x08007246   Section        0  ff.o(i.load_xdir)
     load_xdir                                0x08007247   Thumb Code   208  ff.o(i.load_xdir)
     i.main                                   0x08007318   Section        0  main.o(i.main)
-    i.mem_cmp                                0x080075b8   Section        0  ff.o(i.mem_cmp)
-    mem_cmp                                  0x080075b9   Thumb Code    28  ff.o(i.mem_cmp)
-    i.mem_cpy                                0x080075d4   Section        0  ff.o(i.mem_cpy)
-    mem_cpy                                  0x080075d5   Thumb Code    18  ff.o(i.mem_cpy)
-    i.mem_set                                0x080075e8   Section        0  ff.o(i.mem_set)
-    mem_set                                  0x080075e9   Thumb Code    14  ff.o(i.mem_set)
-    i.move_window                            0x080075f6   Section        0  ff.o(i.move_window)
-    move_window                              0x080075f7   Thumb Code    50  ff.o(i.move_window)
-    i.my_mem_free                            0x08007628   Section        0  malloc.o(i.my_mem_free)
-    i.my_mem_init                            0x08007680   Section        0  malloc.o(i.my_mem_init)
-    i.my_mem_malloc                          0x080076ac   Section        0  malloc.o(i.my_mem_malloc)
-    i.my_mem_perused                         0x08007734   Section        0  malloc.o(i.my_mem_perused)
-    i.myfree                                 0x08007770   Section        0  malloc.o(i.myfree)
-    i.mymalloc                               0x08007788   Section        0  malloc.o(i.mymalloc)
-    i.mymemset                               0x080077a8   Section        0  malloc.o(i.mymemset)
-    i.pick_lfn                               0x080077b8   Section        0  ff.o(i.pick_lfn)
-    pick_lfn                                 0x080077b9   Thumb Code   110  ff.o(i.pick_lfn)
-    i.put_fat                                0x0800782c   Section        0  ff.o(i.put_fat)
-    put_fat                                  0x0800782d   Thumb Code   256  ff.o(i.put_fat)
-    i.remove_chain                           0x0800792c   Section        0  ff.o(i.remove_chain)
-    remove_chain                             0x0800792d   Thumb Code   262  ff.o(i.remove_chain)
-    i.st_clust                               0x08007a32   Section        0  ff.o(i.st_clust)
-    st_clust                                 0x08007a33   Thumb Code    40  ff.o(i.st_clust)
-    i.st_dword                               0x08007a5a   Section        0  ff.o(i.st_dword)
-    st_dword                                 0x08007a5b   Thumb Code    16  ff.o(i.st_dword)
-    i.st_qword                               0x08007a6a   Section        0  ff.o(i.st_qword)
-    st_qword                                 0x08007a6b   Thumb Code    74  ff.o(i.st_qword)
-    i.st_word                                0x08007ab4   Section        0  ff.o(i.st_word)
-    st_word                                  0x08007ab5   Thumb Code     8  ff.o(i.st_word)
-    i.store_xdir                             0x08007abc   Section        0  ff.o(i.store_xdir)
-    store_xdir                               0x08007abd   Thumb Code   106  ff.o(i.store_xdir)
-    i.sum_sfn                                0x08007b26   Section        0  ff.o(i.sum_sfn)
-    sum_sfn                                  0x08007b27   Thumb Code    28  ff.o(i.sum_sfn)
-    i.sync_fs                                0x08007b44   Section        0  ff.o(i.sync_fs)
-    sync_fs                                  0x08007b45   Thumb Code   126  ff.o(i.sync_fs)
-    i.sync_window                            0x08007bcc   Section        0  ff.o(i.sync_window)
-    sync_window                              0x08007bcd   Thumb Code    70  ff.o(i.sync_window)
-    i.tchar2uni                              0x08007c12   Section        0  ff.o(i.tchar2uni)
-    tchar2uni                                0x08007c13   Thumb Code    78  ff.o(i.tchar2uni)
-    i.validate                               0x08007c60   Section        0  ff.o(i.validate)
-    validate                                 0x08007c61   Thumb Code    52  ff.o(i.validate)
-    i.xdir_sum                               0x08007c94   Section        0  ff.o(i.xdir_sum)
-    xdir_sum                                 0x08007c95   Thumb Code    52  ff.o(i.xdir_sum)
-    i.xname_sum                              0x08007cc8   Section        0  ff.o(i.xname_sum)
-    xname_sum                                0x08007cc9   Thumb Code    62  ff.o(i.xname_sum)
-    .constdata                               0x08007d06   Section    18240  lcd.o(.constdata)
-    .constdata                               0x0800c448   Section       36  malloc.o(.constdata)
-    .constdata                               0x0800c46c   Section        8  stm32f7xx_hal_dma.o(.constdata)
-    flagBitshiftOffset                       0x0800c46c   Data           8  stm32f7xx_hal_dma.o(.constdata)
-    .constdata                               0x0800c474   Section       16  system_stm32f7xx.o(.constdata)
-    .constdata                               0x0800c484   Section        8  system_stm32f7xx.o(.constdata)
-    .constdata                               0x0800c48c   Section       60  ff.o(.constdata)
-    LfnOfs                                   0x0800c48c   Data          13  ff.o(.constdata)
-    badchr                                   0x0800c499   Data          18  ff.o(.constdata)
-    cst                                      0x0800c4ac   Data          14  ff.o(.constdata)
-    cst32                                    0x0800c4ba   Data          14  ff.o(.constdata)
-    .constdata                               0x0800c4c8   Section    175030  ffunicode.o(.constdata)
-    uni2oem936                               0x0800c4c8   Data       87172  ffunicode.o(.constdata)
-    oem2uni936                               0x0802194c   Data       87172  ffunicode.o(.constdata)
-    cvt1                                     0x08036dd0   Data         498  ffunicode.o(.constdata)
-    cvt2                                     0x08036fc2   Data         188  ffunicode.o(.constdata)
+    i.mem_cmp                                0x080075b4   Section        0  ff.o(i.mem_cmp)
+    mem_cmp                                  0x080075b5   Thumb Code    28  ff.o(i.mem_cmp)
+    i.mem_cpy                                0x080075d0   Section        0  ff.o(i.mem_cpy)
+    mem_cpy                                  0x080075d1   Thumb Code    18  ff.o(i.mem_cpy)
+    i.mem_set                                0x080075e4   Section        0  ff.o(i.mem_set)
+    mem_set                                  0x080075e5   Thumb Code    14  ff.o(i.mem_set)
+    i.move_window                            0x080075f2   Section        0  ff.o(i.move_window)
+    move_window                              0x080075f3   Thumb Code    50  ff.o(i.move_window)
+    i.my_mem_free                            0x08007624   Section        0  malloc.o(i.my_mem_free)
+    i.my_mem_init                            0x0800767c   Section        0  malloc.o(i.my_mem_init)
+    i.my_mem_malloc                          0x080076a8   Section        0  malloc.o(i.my_mem_malloc)
+    i.my_mem_perused                         0x08007730   Section        0  malloc.o(i.my_mem_perused)
+    i.myfree                                 0x0800776c   Section        0  malloc.o(i.myfree)
+    i.mymalloc                               0x08007784   Section        0  malloc.o(i.mymalloc)
+    i.mymemset                               0x080077a4   Section        0  malloc.o(i.mymemset)
+    i.pick_lfn                               0x080077b4   Section        0  ff.o(i.pick_lfn)
+    pick_lfn                                 0x080077b5   Thumb Code   110  ff.o(i.pick_lfn)
+    i.put_fat                                0x08007828   Section        0  ff.o(i.put_fat)
+    put_fat                                  0x08007829   Thumb Code   256  ff.o(i.put_fat)
+    i.remove_chain                           0x08007928   Section        0  ff.o(i.remove_chain)
+    remove_chain                             0x08007929   Thumb Code   262  ff.o(i.remove_chain)
+    i.st_clust                               0x08007a2e   Section        0  ff.o(i.st_clust)
+    st_clust                                 0x08007a2f   Thumb Code    40  ff.o(i.st_clust)
+    i.st_dword                               0x08007a56   Section        0  ff.o(i.st_dword)
+    st_dword                                 0x08007a57   Thumb Code    16  ff.o(i.st_dword)
+    i.st_qword                               0x08007a66   Section        0  ff.o(i.st_qword)
+    st_qword                                 0x08007a67   Thumb Code    74  ff.o(i.st_qword)
+    i.st_word                                0x08007ab0   Section        0  ff.o(i.st_word)
+    st_word                                  0x08007ab1   Thumb Code     8  ff.o(i.st_word)
+    i.store_xdir                             0x08007ab8   Section        0  ff.o(i.store_xdir)
+    store_xdir                               0x08007ab9   Thumb Code   106  ff.o(i.store_xdir)
+    i.sum_sfn                                0x08007b22   Section        0  ff.o(i.sum_sfn)
+    sum_sfn                                  0x08007b23   Thumb Code    28  ff.o(i.sum_sfn)
+    i.sync_fs                                0x08007b40   Section        0  ff.o(i.sync_fs)
+    sync_fs                                  0x08007b41   Thumb Code   126  ff.o(i.sync_fs)
+    i.sync_window                            0x08007bc8   Section        0  ff.o(i.sync_window)
+    sync_window                              0x08007bc9   Thumb Code    70  ff.o(i.sync_window)
+    i.tchar2uni                              0x08007c0e   Section        0  ff.o(i.tchar2uni)
+    tchar2uni                                0x08007c0f   Thumb Code    78  ff.o(i.tchar2uni)
+    i.validate                               0x08007c5c   Section        0  ff.o(i.validate)
+    validate                                 0x08007c5d   Thumb Code    52  ff.o(i.validate)
+    i.xdir_sum                               0x08007c90   Section        0  ff.o(i.xdir_sum)
+    xdir_sum                                 0x08007c91   Thumb Code    52  ff.o(i.xdir_sum)
+    i.xname_sum                              0x08007cc4   Section        0  ff.o(i.xname_sum)
+    xname_sum                                0x08007cc5   Thumb Code    62  ff.o(i.xname_sum)
+    .constdata                               0x08007d02   Section    18240  lcd.o(.constdata)
+    .constdata                               0x0800c444   Section       36  malloc.o(.constdata)
+    .constdata                               0x0800c468   Section        8  stm32f7xx_hal_dma.o(.constdata)
+    flagBitshiftOffset                       0x0800c468   Data           8  stm32f7xx_hal_dma.o(.constdata)
+    .constdata                               0x0800c470   Section       16  system_stm32f7xx.o(.constdata)
+    .constdata                               0x0800c480   Section        8  system_stm32f7xx.o(.constdata)
+    .constdata                               0x0800c488   Section       60  ff.o(.constdata)
+    LfnOfs                                   0x0800c488   Data          13  ff.o(.constdata)
+    badchr                                   0x0800c495   Data          18  ff.o(.constdata)
+    cst                                      0x0800c4a8   Data          14  ff.o(.constdata)
+    cst32                                    0x0800c4b6   Data          14  ff.o(.constdata)
+    .constdata                               0x0800c4c4   Section    175030  ffunicode.o(.constdata)
+    uni2oem936                               0x0800c4c4   Data       87172  ffunicode.o(.constdata)
+    oem2uni936                               0x08021948   Data       87172  ffunicode.o(.constdata)
+    cvt1                                     0x08036dcc   Data         498  ffunicode.o(.constdata)
+    cvt2                                     0x08036fbe   Data         188  ffunicode.o(.constdata)
     .ARM.__AT_0x20000000                     0x20000000   Section    61440  malloc.o(.ARM.__AT_0x20000000)
     .ARM.__AT_0x2000F000                     0x2000f000   Section     3840  malloc.o(.ARM.__AT_0x2000F000)
     .data                                    0x20020000   Section        1  key.o(.data)
@@ -3512,24 +3512,24 @@ Image Symbol Table
     fputc                                    0x08006f21   Thumb Code    20  usart.o(i.fputc)
     get_fattime                              0x08007105   Thumb Code     4  diskio.o(i.get_fattime)
     main                                     0x08007319   Thumb Code   392  main.o(i.main)
-    my_mem_free                              0x08007629   Thumb Code    80  malloc.o(i.my_mem_free)
-    my_mem_init                              0x08007681   Thumb Code    36  malloc.o(i.my_mem_init)
-    my_mem_malloc                            0x080076ad   Thumb Code   128  malloc.o(i.my_mem_malloc)
-    my_mem_perused                           0x08007735   Thumb Code    50  malloc.o(i.my_mem_perused)
-    myfree                                   0x08007771   Thumb Code    20  malloc.o(i.myfree)
-    mymalloc                                 0x08007789   Thumb Code    28  malloc.o(i.mymalloc)
-    mymemset                                 0x080077a9   Thumb Code    14  malloc.o(i.mymemset)
-    asc2_1206                                0x08007d06   Data        1140  lcd.o(.constdata)
-    asc2_1608                                0x0800817a   Data        1520  lcd.o(.constdata)
-    asc2_2412                                0x0800876a   Data        3420  lcd.o(.constdata)
-    asc2_3216                                0x080094c6   Data       12160  lcd.o(.constdata)
-    memtblsize                               0x0800c448   Data          12  malloc.o(.constdata)
-    memblksize                               0x0800c454   Data          12  malloc.o(.constdata)
-    memsize                                  0x0800c460   Data          12  malloc.o(.constdata)
-    AHBPrescTable                            0x0800c474   Data          16  system_stm32f7xx.o(.constdata)
-    APBPrescTable                            0x0800c484   Data           8  system_stm32f7xx.o(.constdata)
-    Region$$Table$$Base                      0x08037080   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x080370a0   Number         0  anon$$obj.o(Region$$Table)
+    my_mem_free                              0x08007625   Thumb Code    80  malloc.o(i.my_mem_free)
+    my_mem_init                              0x0800767d   Thumb Code    36  malloc.o(i.my_mem_init)
+    my_mem_malloc                            0x080076a9   Thumb Code   128  malloc.o(i.my_mem_malloc)
+    my_mem_perused                           0x08007731   Thumb Code    50  malloc.o(i.my_mem_perused)
+    myfree                                   0x0800776d   Thumb Code    20  malloc.o(i.myfree)
+    mymalloc                                 0x08007785   Thumb Code    28  malloc.o(i.mymalloc)
+    mymemset                                 0x080077a5   Thumb Code    14  malloc.o(i.mymemset)
+    asc2_1206                                0x08007d02   Data        1140  lcd.o(.constdata)
+    asc2_1608                                0x08008176   Data        1520  lcd.o(.constdata)
+    asc2_2412                                0x08008766   Data        3420  lcd.o(.constdata)
+    asc2_3216                                0x080094c2   Data       12160  lcd.o(.constdata)
+    memtblsize                               0x0800c444   Data          12  malloc.o(.constdata)
+    memblksize                               0x0800c450   Data          12  malloc.o(.constdata)
+    memsize                                  0x0800c45c   Data          12  malloc.o(.constdata)
+    AHBPrescTable                            0x0800c470   Data          16  system_stm32f7xx.o(.constdata)
+    APBPrescTable                            0x0800c480   Data           8  system_stm32f7xx.o(.constdata)
+    Region$$Table$$Base                      0x0803707c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0803709c   Number         0  anon$$obj.o(Region$$Table)
     mem3base                                 0x20000000   Data       61440  malloc.o(.ARM.__AT_0x20000000)
     mem3mapbase                              0x2000f000   Data        3840  malloc.o(.ARM.__AT_0x2000F000)
     POINT_COLOR                              0x20020004   Data           4  lcd.o(.data)
@@ -3576,9 +3576,9 @@ Memory Map of the image
 
   Image Entry point : 0x080001f9
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00037100, Max: 0x00100000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000370fc, Max: 0x00100000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x000370a0, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0003709c, Max: 0x00100000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3884,67 +3884,67 @@ Memory Map of the image
     0x0800720c   0x0800720c   0x0000003a   Code   RO         5894    i.load_obj_xdir     ff.o
     0x08007246   0x08007246   0x000000d0   Code   RO         5895    i.load_xdir         ff.o
     0x08007316   0x08007316   0x00000002   PAD
-    0x08007318   0x08007318   0x000002a0   Code   RO          536    i.main              main.o
-    0x080075b8   0x080075b8   0x0000001c   Code   RO         5896    i.mem_cmp           ff.o
-    0x080075d4   0x080075d4   0x00000012   Code   RO         5897    i.mem_cpy           ff.o
-    0x080075e6   0x080075e6   0x00000002   PAD
-    0x080075e8   0x080075e8   0x0000000e   Code   RO         5898    i.mem_set           ff.o
-    0x080075f6   0x080075f6   0x00000032   Code   RO         5899    i.move_window       ff.o
-    0x08007628   0x08007628   0x00000058   Code   RO          451    i.my_mem_free       malloc.o
-    0x08007680   0x08007680   0x0000002c   Code   RO          452    i.my_mem_init       malloc.o
-    0x080076ac   0x080076ac   0x00000088   Code   RO          453    i.my_mem_malloc     malloc.o
-    0x08007734   0x08007734   0x0000003c   Code   RO          454    i.my_mem_perused    malloc.o
-    0x08007770   0x08007770   0x00000018   Code   RO          455    i.myfree            malloc.o
-    0x08007788   0x08007788   0x00000020   Code   RO          456    i.mymalloc          malloc.o
-    0x080077a8   0x080077a8   0x0000000e   Code   RO          458    i.mymemset          malloc.o
-    0x080077b6   0x080077b6   0x00000002   PAD
-    0x080077b8   0x080077b8   0x00000074   Code   RO         5900    i.pick_lfn          ff.o
-    0x0800782c   0x0800782c   0x00000100   Code   RO         5901    i.put_fat           ff.o
-    0x0800792c   0x0800792c   0x00000106   Code   RO         5906    i.remove_chain      ff.o
-    0x08007a32   0x08007a32   0x00000028   Code   RO         5907    i.st_clust          ff.o
-    0x08007a5a   0x08007a5a   0x00000010   Code   RO         5908    i.st_dword          ff.o
-    0x08007a6a   0x08007a6a   0x0000004a   Code   RO         5909    i.st_qword          ff.o
-    0x08007ab4   0x08007ab4   0x00000008   Code   RO         5910    i.st_word           ff.o
-    0x08007abc   0x08007abc   0x0000006a   Code   RO         5911    i.store_xdir        ff.o
-    0x08007b26   0x08007b26   0x0000001c   Code   RO         5912    i.sum_sfn           ff.o
-    0x08007b42   0x08007b42   0x00000002   PAD
-    0x08007b44   0x08007b44   0x00000088   Code   RO         5913    i.sync_fs           ff.o
-    0x08007bcc   0x08007bcc   0x00000046   Code   RO         5914    i.sync_window       ff.o
-    0x08007c12   0x08007c12   0x0000004e   Code   RO         5915    i.tchar2uni         ff.o
-    0x08007c60   0x08007c60   0x00000034   Code   RO         5916    i.validate          ff.o
-    0x08007c94   0x08007c94   0x00000034   Code   RO         5917    i.xdir_sum          ff.o
-    0x08007cc8   0x08007cc8   0x0000003e   Code   RO         5918    i.xname_sum         ff.o
-    0x08007d06   0x08007d06   0x00004740   Data   RO          270    .constdata          lcd.o
-    0x0800c446   0x0800c446   0x00000002   PAD
-    0x0800c448   0x0800c448   0x00000024   Data   RO          466    .constdata          malloc.o
-    0x0800c46c   0x0800c46c   0x00000008   Data   RO         4614    .constdata          stm32f7xx_hal_dma.o
-    0x0800c474   0x0800c474   0x00000010   Data   RO         5745    .constdata          system_stm32f7xx.o
-    0x0800c484   0x0800c484   0x00000008   Data   RO         5746    .constdata          system_stm32f7xx.o
-    0x0800c48c   0x0800c48c   0x0000003c   Data   RO         5921    .constdata          ff.o
-    0x0800c4c8   0x0800c4c8   0x0002abb6   Data   RO         6318    .constdata          ffunicode.o
-    0x0803707e   0x0803707e   0x00000002   PAD
-    0x08037080   0x08037080   0x00000020   Data   RO         6651    Region$$Table       anon$$obj.o
+    0x08007318   0x08007318   0x0000029c   Code   RO          536    i.main              main.o
+    0x080075b4   0x080075b4   0x0000001c   Code   RO         5896    i.mem_cmp           ff.o
+    0x080075d0   0x080075d0   0x00000012   Code   RO         5897    i.mem_cpy           ff.o
+    0x080075e2   0x080075e2   0x00000002   PAD
+    0x080075e4   0x080075e4   0x0000000e   Code   RO         5898    i.mem_set           ff.o
+    0x080075f2   0x080075f2   0x00000032   Code   RO         5899    i.move_window       ff.o
+    0x08007624   0x08007624   0x00000058   Code   RO          451    i.my_mem_free       malloc.o
+    0x0800767c   0x0800767c   0x0000002c   Code   RO          452    i.my_mem_init       malloc.o
+    0x080076a8   0x080076a8   0x00000088   Code   RO          453    i.my_mem_malloc     malloc.o
+    0x08007730   0x08007730   0x0000003c   Code   RO          454    i.my_mem_perused    malloc.o
+    0x0800776c   0x0800776c   0x00000018   Code   RO          455    i.myfree            malloc.o
+    0x08007784   0x08007784   0x00000020   Code   RO          456    i.mymalloc          malloc.o
+    0x080077a4   0x080077a4   0x0000000e   Code   RO          458    i.mymemset          malloc.o
+    0x080077b2   0x080077b2   0x00000002   PAD
+    0x080077b4   0x080077b4   0x00000074   Code   RO         5900    i.pick_lfn          ff.o
+    0x08007828   0x08007828   0x00000100   Code   RO         5901    i.put_fat           ff.o
+    0x08007928   0x08007928   0x00000106   Code   RO         5906    i.remove_chain      ff.o
+    0x08007a2e   0x08007a2e   0x00000028   Code   RO         5907    i.st_clust          ff.o
+    0x08007a56   0x08007a56   0x00000010   Code   RO         5908    i.st_dword          ff.o
+    0x08007a66   0x08007a66   0x0000004a   Code   RO         5909    i.st_qword          ff.o
+    0x08007ab0   0x08007ab0   0x00000008   Code   RO         5910    i.st_word           ff.o
+    0x08007ab8   0x08007ab8   0x0000006a   Code   RO         5911    i.store_xdir        ff.o
+    0x08007b22   0x08007b22   0x0000001c   Code   RO         5912    i.sum_sfn           ff.o
+    0x08007b3e   0x08007b3e   0x00000002   PAD
+    0x08007b40   0x08007b40   0x00000088   Code   RO         5913    i.sync_fs           ff.o
+    0x08007bc8   0x08007bc8   0x00000046   Code   RO         5914    i.sync_window       ff.o
+    0x08007c0e   0x08007c0e   0x0000004e   Code   RO         5915    i.tchar2uni         ff.o
+    0x08007c5c   0x08007c5c   0x00000034   Code   RO         5916    i.validate          ff.o
+    0x08007c90   0x08007c90   0x00000034   Code   RO         5917    i.xdir_sum          ff.o
+    0x08007cc4   0x08007cc4   0x0000003e   Code   RO         5918    i.xname_sum         ff.o
+    0x08007d02   0x08007d02   0x00004740   Data   RO          270    .constdata          lcd.o
+    0x0800c442   0x0800c442   0x00000002   PAD
+    0x0800c444   0x0800c444   0x00000024   Data   RO          466    .constdata          malloc.o
+    0x0800c468   0x0800c468   0x00000008   Data   RO         4614    .constdata          stm32f7xx_hal_dma.o
+    0x0800c470   0x0800c470   0x00000010   Data   RO         5745    .constdata          system_stm32f7xx.o
+    0x0800c480   0x0800c480   0x00000008   Data   RO         5746    .constdata          system_stm32f7xx.o
+    0x0800c488   0x0800c488   0x0000003c   Data   RO         5921    .constdata          ff.o
+    0x0800c4c4   0x0800c4c4   0x0002abb6   Data   RO         6318    .constdata          ffunicode.o
+    0x0803707a   0x0803707a   0x00000002   PAD
+    0x0803707c   0x0803707c   0x00000020   Data   RO         6651    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20020000, Load base: 0x080370a0, Size: 0x0002c760, Max: 0x00060000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20020000, Load base: 0x0803709c, Size: 0x0002c760, Max: 0x00060000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20020000   0x080370a0   0x00000001   Data   RW           14    .data               key.o
-    0x20020001   0x080370a1   0x00000003   PAD
-    0x20020004   0x080370a4   0x00000008   Data   RW          271    .data               lcd.o
-    0x2002000c   0x080370ac   0x00000004   Data   RW          354    .data               w25q256.o
-    0x20020010   0x080370b0   0x00000024   Data   RW          467    .data               malloc.o
-    0x20020034   0x080370d4   0x00000008   Data   RW          651    .data               fmc.o
-    0x2002003c   0x080370dc   0x00000008   Data   RW          746    .data               ltdc.o
-    0x20020044   0x080370e4   0x00000004   Data   RW         1035    .data               usart.o
-    0x20020048   0x080370e8   0x0000000c   Data   RW         4993    .data               stm32f7xx_hal.o
-    0x20020054   0x080370f4   0x00000004   Data   RW         5747    .data               system_stm32f7xx.o
-    0x20020058   0x080370f8   0x00000002   Data   RW         5923    .data               ff.o
-    0x2002005a   0x080370fa   0x00000002   PAD
-    0x2002005c   0x080370fc   0x00000004   Data   RW         6627    .data               mc_w.l(stdout.o)
+    0x20020000   0x0803709c   0x00000001   Data   RW           14    .data               key.o
+    0x20020001   0x0803709d   0x00000003   PAD
+    0x20020004   0x080370a0   0x00000008   Data   RW          271    .data               lcd.o
+    0x2002000c   0x080370a8   0x00000004   Data   RW          354    .data               w25q256.o
+    0x20020010   0x080370ac   0x00000024   Data   RW          467    .data               malloc.o
+    0x20020034   0x080370d0   0x00000008   Data   RW          651    .data               fmc.o
+    0x2002003c   0x080370d8   0x00000008   Data   RW          746    .data               ltdc.o
+    0x20020044   0x080370e0   0x00000004   Data   RW         1035    .data               usart.o
+    0x20020048   0x080370e4   0x0000000c   Data   RW         4993    .data               stm32f7xx_hal.o
+    0x20020054   0x080370f0   0x00000004   Data   RW         5747    .data               system_stm32f7xx.o
+    0x20020058   0x080370f4   0x00000002   Data   RW         5923    .data               ff.o
+    0x2002005a   0x080370f6   0x00000002   PAD
+    0x2002005c   0x080370f8   0x00000004   Data   RW         6627    .data               mc_w.l(stdout.o)
     0x20020060        -       0x00001000   Zero   RW          353    .bss                w25q256.o
-    0x20021060   0x08037100   0x00000020   PAD
+    0x20021060   0x080370fc   0x00000020   PAD
     0x20021080        -       0x00028000   Zero   RW          464    .bss                malloc.o
     0x20049080        -       0x00002800   Zero   RW          465    .bss                malloc.o
     0x2004b880        -       0x00000074   Zero   RW          650    .bss                fmc.o
@@ -3954,7 +3954,7 @@ Memory Map of the image
     0x2004bd6c        -       0x00000040   Zero   RW          985    .bss                tim.o
     0x2004bdac        -       0x000001a4   Zero   RW         1034    .bss                usart.o
     0x2004bf50        -       0x0000000c   Zero   RW         5920    .bss                ff.o
-    0x2004bf5c   0x08037100   0x00000004   PAD
+    0x2004bf5c   0x080370fc   0x00000004   PAD
     0x2004bf60        -       0x00000800   Zero   RW            1    STACK               startup_stm32f767xx.o
 
 
@@ -4026,7 +4026,7 @@ Image component sizes
        220         16          0          1          0     915623   key.o
        278         24      18240          8          0       2769   lcd.o
        860         96          0          8    2048200       6529   ltdc.o
-       858        292          0          0          0      37631   main.o
+       854        288          0          0          0      37631   main.o
        398         42         36         36   31695616       6189   malloc.o
        364         44          0          0         76       3424   quadspi.o
        888         78          0          0        868       6327   sdmmc.o
@@ -4057,7 +4057,7 @@ Image component sizes
        838         40          0          4       4096       7744   w25q256.o
 
     ----------------------------------------------------------------------
-     30768       1436     193938         92   33751552    1239314   Object Totals
+     30764       1432     193938         92   33751552    1239314   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         56          0          4          5         36          0   (incl. Padding)
 
@@ -4104,15 +4104,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     31502       1466     193938         96   33751552    1212642   Grand Totals
-     31502       1466     193938         96   33751552    1212642   ELF Image Totals
-     31502       1466     193938         96          0          0   ROM Totals
+     31498       1462     193938         96   33751552    1212642   Grand Totals
+     31498       1462     193938         96   33751552    1212642   ELF Image Totals
+     31498       1462     193938         96          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)               225440 ( 220.16kB)
+    Total RO  Size (Code + RO Data)               225436 ( 220.15kB)
     Total RW  Size (RW Data + ZI Data)          33751648 (32960.59kB)
-    Total ROM Size (Code + RO Data + RW Data)     225536 ( 220.25kB)
+    Total ROM Size (Code + RO Data + RW Data)     225532 ( 220.25kB)
 
 ==============================================================================
 
