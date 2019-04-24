@@ -36,29 +36,8 @@ DSTATUS disk_status (
 )
 {
 	DSTATUS stat;
-	switch (pdrv) {
-	case DEV_RAM :
-//		result = RAM_disk_status();
-
-		// translate the reslut code here
-
-		return stat;
-
-	case DEV_MMC :
-//		result = MMC_disk_status();
-
-		// translate the reslut code here
-
-		return stat;
-
-	case DEV_USB :
-//		result = USB_disk_status();
-
-		// translate the reslut code here
-
-		return stat;
-	}
-	return STA_NOINIT;
+	
+	return RES_OK;
 }
 
 

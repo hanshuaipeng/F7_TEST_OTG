@@ -213,17 +213,22 @@ uint8_t SD_ReadBlocks_DMA(uint8_t *buf,uint32_t sector,uint32_t cnt)
     err=HAL_SD_ReadBlocks_DMA(&hsd1,buf,sector,cnt);//通过DMA读取SD卡一个扇区
     if(err==0)//读取成功
     {
-		while(HAL_SD_GetCardState(&hsd1)!=HAL_SD_CARD_TRANSFER)
+		err=HAL_SD_GetCardState(&hsd1);
+		while(err!=HAL_SD_CARD_TRANSFER)
 		{
+			err=HAL_SD_GetCardState(&hsd1);
 			timeout++;
 			if(timeout>0x10000000)
-				break;
+			{
+				return err;
+			}
+				
 		}
 //        //等待读取完成
-        err=HAL_SD_GetCardState(&hsd1);
+      
     }
     if(Get_DCahceSta())SCB_CleanInvalidateDCache(); //DMA完成，清缓存
-    return err;
+    return 0;
 }
 //写SD卡
 //buf:写数据缓存区
@@ -239,18 +244,18 @@ uint8_t SD_WriteBlocks_DMA(uint8_t *buf,uint32_t sector,uint32_t cnt)
     err=HAL_SD_WriteBlocks_DMA(&hsd1,buf,sector,cnt);//通过DMA写SD卡一个扇区
     if(err==0)//写成功
     {
-		while(HAL_SD_GetCardState(&hsd1)!=HAL_SD_CARD_TRANSFER)
+		err=HAL_SD_GetCardState(&hsd1);
+		while(err!=HAL_SD_CARD_TRANSFER)
 		{
+			err=HAL_SD_GetCardState(&hsd1);
 			timeout++;
 			if(timeout>0x10000000)
-				break;
+				return err;
 		}
-//        //等待读取完成
-        err=HAL_SD_GetCardState(&hsd1);
         //等待读取完成/
     }
     if(Get_DCahceSta())SCB_CleanInvalidateDCache(); //DMA完成，清缓存
-    return err;
+    return 0;
 }
 //读SD卡
 //buf:读数据缓存区
@@ -267,7 +272,7 @@ uint8_t SD_ReadDisk(uint8_t* buf,uint32_t sector,uint8_t cnt)
     {
         for(n=0;n<cnt;n++)
         {
-            sta=SD_ReadBlocks_DMA(SDIO_DATA_BUFFER,lsector+512*n,1);
+            sta=SD_ReadBlocks_DMA((uint8_t *)SDIO_DATA_BUFFER,lsector+512*n,1);
             memcpy(buf,SDIO_DATA_BUFFER,512);
             buf+=512;
         }

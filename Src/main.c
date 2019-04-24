@@ -79,6 +79,8 @@ int main(void)
 	uint8_t res;
 	uint8_t write[19]="this is write test";
 	UINT wr_bw;
+	uint8_t *buf;
+	uint32_t sd_size;
   /* USER CODE END 1 */
 
   /* Enable I-Cache---------------------------------------------------------*/
@@ -115,6 +117,7 @@ int main(void)
   MX_SDMMC1_SD_Init();
   /* USER CODE BEGIN 2 */
     SDRAM_Init();
+	
 	W25QXX_Init();
     LTDC_LCD_Init();
 	my_mem_init(SRAMIN);		    //初始化内部内存池
@@ -125,6 +128,7 @@ int main(void)
 	LTDC_ShowString(100,0,32,"F7 TEST");
 	
 	res=f_mount(&fs,"0:",1);
+//	read_sdinfo();
 	if(res)
 	{
 		printf("mount error %d\r\n",res);
@@ -145,7 +149,8 @@ int main(void)
 	  switch(Key_Scan(0))
       {
           case KEY0_PRES:
-			  res=f_open(&fil,"0:fatfstest.txt",FA_CREATE_ALWAYS|FA_WRITE);
+			 
+			  res=f_open(&fil,"0:/fatfstest.txt",FA_CREATE_ALWAYS|FA_WRITE);
 				if(res)
 				{
 					printf("open error %d\r\n",res);
