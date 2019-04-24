@@ -31,12 +31,18 @@ void LTDC_ShowChar(uint16_t x,uint16_t y,uint8_t num,uint8_t size,uint8_t mode)
 			else if(mode==0)LTDC_Draw_Point(x,y,BACK_COLOR);
 			temp<<=1;
 			y++;
-			if(y>=lcdltdc.height)return;		//超区域了
+			if(y>=lcdltdc.height)
+			{
+				return;		//超区域了
+			}
 			if((y-y0)==size)
 			{
 				y=y0;
 				x++;
-				if(x>=lcdltdc.width)return;	//超区域了
+				if(x>=lcdltdc.width)
+				{
+					return;	//超区域了
+				}
 				break;
 			}
 		}  	 

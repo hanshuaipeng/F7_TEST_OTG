@@ -78,7 +78,9 @@ int main(void)
 	FATFS fs;
 	uint8_t res;
 	uint8_t write[19]="this is write test";
+	uint8_t read[19];
 	UINT wr_bw;
+	UINT r_bw;
 	uint8_t *buf;
 	uint32_t sd_size;
   /* USER CODE END 1 */
@@ -150,7 +152,7 @@ int main(void)
       {
           case KEY0_PRES:
 			 
-			  res=f_open(&fil,"0:/fatfstest.txt",FA_CREATE_ALWAYS|FA_WRITE);
+			  res=f_open(&fil,"0:/fatfs.txt",FA_READ);
 				if(res)
 				{
 					printf("open error %d\r\n",res);
@@ -186,6 +188,19 @@ int main(void)
               printf("key2 is press\r\n");
           break;
           case WKUP_PRES:
+			  res=f_read(&fil,read,19,&r_bw);
+				if(res)
+				{
+					printf("read error %d\r\n",res);
+					LTDC_ShowString(0,32,32,"error\r\n");
+				}
+				else
+				{
+					printf("read success,size=%d\r\n",r_bw);
+					LTDC_ShowString(0,32,32,read);
+					
+				}
+				
               printf("wk_up is press\r\n");
           break;
           default : break;
