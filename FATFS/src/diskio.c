@@ -36,8 +36,8 @@ DSTATUS disk_status (
 )
 {
 	DSTATUS stat;
-	
-	return RES_OK;
+	stat = RES_OK;
+	return stat;
 }
 
 

@@ -42,8 +42,8 @@ void MX_SDMMC1_SD_Init(void);
 extern HAL_SD_CardInfoTypeDef  SDCardInfo;          //SD卡信息结构体
 
 uint8_t SD_GetCardInfo(HAL_SD_CardInfoTypeDef *cardinfo);
-uint8_t SD_ReadDisk(uint8_t* buf,uint32_t sector,uint8_t cnt);
-uint8_t SD_WriteDisk(uint8_t *buf,uint32_t sector,uint8_t cnt);
+uint8_t SD_ReadDisk(uint8_t* buf,uint32_t sector,uint32_t cnt);
+uint8_t SD_WriteDisk(uint8_t *buf,uint32_t sector,uint32_t cnt);
 uint8_t SD_ReadBlocks_DMA(uint8_t *buf,uint32_t sector,uint32_t cnt);
 uint8_t SD_WriteBlocks_DMA(uint8_t *buf,uint32_t sector,uint32_t cnt);
 void read_sdinfo(void);

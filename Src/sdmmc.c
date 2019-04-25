@@ -139,7 +139,7 @@ void HAL_SD_MspInit(SD_HandleTypeDef* sdHandle)
     HAL_NVIC_SetPriority(SDMMC1_IRQn, 1, 0);
     HAL_NVIC_EnableIRQ(SDMMC1_IRQn);
   /* USER CODE BEGIN SDMMC1_MspInit 1 */
-
+	read_sdinfo();
   /* USER CODE END SDMMC1_MspInit 1 */
   }
 }
@@ -262,11 +262,11 @@ uint8_t SD_WriteBlocks_DMA(uint8_t *buf,uint32_t sector,uint32_t cnt)
 //sector:扇区地址
 //cnt:扇区个数	
 //返回值:错误状态;0,正常;其他,错误代码;
-uint8_t SD_ReadDisk(uint8_t* buf,uint32_t sector,uint8_t cnt)
+uint8_t SD_ReadDisk(uint8_t* buf,uint32_t sector,uint32_t cnt)
 {
     uint8_t sta;
     long long lsector=sector;
-    uint8_t n;
+    uint32_t n;
     if(SDCardInfo.CardType!=CARD_V1_X)lsector<<=9;
     if((uint32_t)buf%4!=0)
     {
@@ -287,11 +287,11 @@ uint8_t SD_ReadDisk(uint8_t* buf,uint32_t sector,uint8_t cnt)
 //sector:扇区地址
 //cnt:扇区个数	
 //返回值:错误状态;0,正常;其他,错误代码;	
-uint8_t SD_WriteDisk(uint8_t *buf,uint32_t sector,uint8_t cnt)
+uint8_t SD_WriteDisk(uint8_t *buf,uint32_t sector,uint32_t cnt)
 {   
     uint8_t sta;
     long long lsector=sector;
-    uint8_t n;
+    uint32_t n;
     if(SDCardInfo.CardType!=CARD_V1_X)lsector<<=9;
     if((uint32_t)buf%4!=0)
     {
