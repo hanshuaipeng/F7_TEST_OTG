@@ -27,6 +27,7 @@
 #include "sdmmc.h"
 #include "tim.h"
 #include "usart.h"
+#include "usb_device.h"
 #include "gpio.h"
 #include "fmc.h"
 
@@ -117,6 +118,7 @@ int main(void)
   MX_LTDC_Init();
   MX_QUADSPI_Init();
   MX_SDMMC1_SD_Init();
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
     SDRAM_Init();
 	

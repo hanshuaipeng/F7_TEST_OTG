@@ -15,8 +15,15 @@
 "test\sdmmc.o"
 "test\tim.o"
 "test\usart.o"
+"test\usb_device.o"
+"test\usbd_conf.o"
+"test\usbd_desc.o"
+"test\usbd_storage_if.o"
 "test\stm32f7xx_it.o"
 "test\stm32f7xx_hal_msp.o"
+"test\stm32f7xx_hal_pcd.o"
+"test\stm32f7xx_hal_pcd_ex.o"
+"test\stm32f7xx_ll_usb.o"
 "test\stm32f7xx_hal_cortex.o"
 "test\stm32f7xx_ll_fmc.o"
 "test\stm32f7xx_hal_nand.o"
@@ -48,7 +55,14 @@
 "test\ff.o"
 "test\ffsystem.o"
 "test\ffunicode.o"
+"test\usbd_core.o"
+"test\usbd_ctlreq.o"
+"test\usbd_ioreq.o"
+"test\usbd_msc.o"
+"test\usbd_msc_bot.o"
+"test\usbd_msc_data.o"
+"test\usbd_msc_scsi.o"
 --library_type=microlib --strict --scatter "TEST\TEST.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "TEST.map" -o TEST\TEST.axf
