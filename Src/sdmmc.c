@@ -138,6 +138,10 @@ void HAL_SD_MspInit(SD_HandleTypeDef* sdHandle)
     /* SDMMC1 interrupt Init */
     HAL_NVIC_SetPriority(SDMMC1_IRQn, 1, 0);
     HAL_NVIC_EnableIRQ(SDMMC1_IRQn);
+	HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 3, 0);  //接收DMA中断优先级
+    HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
+    HAL_NVIC_SetPriority(DMA2_Stream6_IRQn, 3, 0);  //发送DMA中断优先级
+    HAL_NVIC_EnableIRQ(DMA2_Stream6_IRQn);
   /* USER CODE BEGIN SDMMC1_MspInit 1 */
 	read_sdinfo();
   /* USER CODE END SDMMC1_MspInit 1 */
