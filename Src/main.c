@@ -21,7 +21,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "dma.h"
-#include "gfxsimulator.h"
 #include "ltdc.h"
 #include "quadspi.h"
 #include "sdmmc.h"
@@ -85,6 +84,7 @@ int main(void)
 	uint8_t *buf;
 	uint32_t sd_size;
   /* USER CODE END 1 */
+  
 
   /* Enable I-Cache---------------------------------------------------------*/
   SCB_EnableICache();
@@ -112,7 +112,6 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_USART1_UART_Init();
-  MX_GFXSIMULATOR_Init();
   MX_TIM3_Init();
   MX_FMC_Init();
   MX_LTDC_Init();
@@ -132,7 +131,7 @@ int main(void)
 	LTDC_ShowString(100,0,32,"F7 TEST");
 	
 	res=f_mount(&fs,"0:",1);
-	read_sdinfo();
+
 	if(res)
 	{
 		printf("mount error %d\r\n",res);
@@ -154,7 +153,7 @@ int main(void)
       {
           case KEY0_PRES:
 			 
-			  res=f_open(&fil,"0:/fatfs.txt",FA_READ);
+			  res=f_open(&fil,"0:aaa.txt",FA_CREATE_ALWAYS|FA_WRITE);
 				if(res)
 				{
 					printf("open error %d\r\n",res);

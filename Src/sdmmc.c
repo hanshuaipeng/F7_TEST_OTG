@@ -30,8 +30,6 @@ HAL_SD_CardInfoTypeDef SDCardInfo;
 /* USER CODE END 0 */
 
 SD_HandleTypeDef hsd1;
-DMA_HandleTypeDef hdma_sdmmc1_rx;
-DMA_HandleTypeDef hdma_sdmmc1_tx;
 
 /* SDMMC1 init function */
 
@@ -93,55 +91,8 @@ void HAL_SD_MspInit(SD_HandleTypeDef* sdHandle)
     GPIO_InitStruct.Alternate = GPIO_AF12_SDMMC1;
     HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
-    /* SDMMC1 DMA Init */
-    /* SDMMC1_RX Init */
-    hdma_sdmmc1_rx.Instance = DMA2_Stream3;
-    hdma_sdmmc1_rx.Init.Channel = DMA_CHANNEL_4;
-    hdma_sdmmc1_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
-    hdma_sdmmc1_rx.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_sdmmc1_rx.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_sdmmc1_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
-    hdma_sdmmc1_rx.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
-    hdma_sdmmc1_rx.Init.Mode = DMA_PFCTRL;
-    hdma_sdmmc1_rx.Init.Priority = DMA_PRIORITY_VERY_HIGH;
-    hdma_sdmmc1_rx.Init.FIFOMode = DMA_FIFOMODE_ENABLE;
-    hdma_sdmmc1_rx.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_FULL;
-    hdma_sdmmc1_rx.Init.MemBurst = DMA_MBURST_INC4;
-    hdma_sdmmc1_rx.Init.PeriphBurst = DMA_PBURST_INC4;
-    if (HAL_DMA_Init(&hdma_sdmmc1_rx) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    __HAL_LINKDMA(sdHandle,hdmarx,hdma_sdmmc1_rx);
-
-    /* SDMMC1_TX Init */
-    hdma_sdmmc1_tx.Instance = DMA2_Stream6;
-    hdma_sdmmc1_tx.Init.Channel = DMA_CHANNEL_4;
-    hdma_sdmmc1_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
-    hdma_sdmmc1_tx.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_sdmmc1_tx.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_sdmmc1_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
-    hdma_sdmmc1_tx.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
-    hdma_sdmmc1_tx.Init.Mode = DMA_PFCTRL;
-    hdma_sdmmc1_tx.Init.Priority = DMA_PRIORITY_VERY_HIGH;
-    hdma_sdmmc1_tx.Init.FIFOMode = DMA_FIFOMODE_ENABLE;
-    hdma_sdmmc1_tx.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_FULL;
-    hdma_sdmmc1_tx.Init.MemBurst = DMA_MBURST_INC4;
-    hdma_sdmmc1_tx.Init.PeriphBurst = DMA_PBURST_INC4;
-    if (HAL_DMA_Init(&hdma_sdmmc1_tx) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    __HAL_LINKDMA(sdHandle,hdmatx,hdma_sdmmc1_tx);
-
-    /* SDMMC1 interrupt Init */
-    HAL_NVIC_SetPriority(SDMMC1_IRQn, 1, 0);
-    HAL_NVIC_EnableIRQ(SDMMC1_IRQn);
-	
   /* USER CODE BEGIN SDMMC1_MspInit 1 */
-	read_sdinfo();
+	
   /* USER CODE END SDMMC1_MspInit 1 */
   }
 }
@@ -170,12 +121,6 @@ void HAL_SD_MspDeInit(SD_HandleTypeDef* sdHandle)
 
     HAL_GPIO_DeInit(GPIOD, GPIO_PIN_2);
 
-    /* SDMMC1 DMA DeInit */
-    HAL_DMA_DeInit(sdHandle->hdmarx);
-    HAL_DMA_DeInit(sdHandle->hdmatx);
-
-    /* SDMMC1 interrupt Deinit */
-    HAL_NVIC_DisableIRQ(SDMMC1_IRQn);
   /* USER CODE BEGIN SDMMC1_MspDeInit 1 */
 
   /* USER CODE END SDMMC1_MspDeInit 1 */
@@ -183,6 +128,15 @@ void HAL_SD_MspDeInit(SD_HandleTypeDef* sdHandle)
 } 
 
 /* USER CODE BEGIN 1 */
+//得到卡信息
+//cardinfo:卡信息存储区
+//返回值:错误状态
+uint8_t SD_GetCardInfo(HAL_SD_CardInfoTypeDef *cardinfo)
+{
+    uint8_t sta;
+	sta=HAL_SD_GetCardInfo(&hsd1,cardinfo);
+    return sta;
+}
 //判断SD卡是否可以传输(读写)数据
 //返回值:SD_TRANSFER_OK 传输完成，可以继续下一次传输
 //		 SD_TRANSFER_BUSY SD卡正忙，不可以进行下一次传输
@@ -190,16 +144,19 @@ uint8_t SD_GetCardState(void)
 {
   return((HAL_SD_GetCardState(&hsd1)==HAL_SD_CARD_TRANSFER )?SD_TRANSFER_OK:SD_TRANSFER_BUSY);
 }
-//得到卡信息
-//cardinfo:卡信息存储区
-//返回值:错误状态
-uint8_t SD_GetCardInfo(HAL_SD_CardInfoTypeDef *cardinfo)
-{
-    uint8_t sta;
-    sta=HAL_SD_GetCardInfo(&hsd1,cardinfo);
-    return sta;
-}
 
+//关闭所有中断(但是不包括fault和NMI中断)
+__asm void INTX_DISABLE(void)
+{
+	CPSID   I
+	BX      LR	  
+}
+//开启所有中断
+__asm void INTX_ENABLE(void)
+{
+	CPSIE   I
+	BX      LR  
+}
 //读SD卡
 //buf:读数据缓存区
 //sector:扇区地址
@@ -207,20 +164,26 @@ uint8_t SD_GetCardInfo(HAL_SD_CardInfoTypeDef *cardinfo)
 //返回值:错误状态;0,正常;其他,错误代码;
 uint8_t SD_ReadDisk(uint8_t* buf,uint32_t sector,uint32_t cnt)
 {
-    uint8_t sta=HAL_ERROR;
-	SDCardReadStatus=0;
+    uint8_t sta=HAL_OK;
+	uint32_t timeout=SD_TIMEOUT;
+    long long lsector=sector;
+    INTX_DISABLE();//关闭总中断(POLLING模式,严禁中断打断SDIO读写操作!!!)
+	sta=HAL_SD_ReadBlocks(&hsd1, (uint8_t*)buf,lsector,cnt,SD_TIMEOUT);//多个sector的读操作
 	
-	if(HAL_SD_ReadBlocks_DMA(&hsd1,(uint8_t*)buf,(uint32_t)sector,(uint32_t)cnt)==HAL_OK)
-	{
-		while(SDCardReadStatus==0){};	//等待读完成
-		
-		SDCardReadStatus=0;
-		while(SD_GetCardState()){};		//等待SD卡空闲
-		sta=HAL_OK;
-	}
-	
+	//等待SD卡读完
+	while(SD_GetCardState()!=SD_TRANSFER_OK)
+    {
+		if(timeout-- == 0)
+		{	
+			sta=SD_TRANSFER_BUSY;
+            break;
+		}
+    }
+    INTX_ENABLE();//开启总中断
     return sta;
-}
+}  
+
+
 //写SD卡
 //buf:写数据缓存区
 //sector:扇区地址
@@ -228,28 +191,26 @@ uint8_t SD_ReadDisk(uint8_t* buf,uint32_t sector,uint32_t cnt)
 //返回值:错误状态;0,正常;其他,错误代码;	
 uint8_t SD_WriteDisk(uint8_t *buf,uint32_t sector,uint32_t cnt)
 {   
-    uint8_t sta=HAL_ERROR; 
-	SDCardWriteStatus=0;
-    if(HAL_SD_WriteBlocks_DMA(&hsd1,(uint8_t*)buf,(uint32_t)sector,(uint32_t)cnt)==HAL_OK)
-	{
-		while(SDCardWriteStatus==0){};	//等待写完成
+    uint8_t sta=HAL_OK;
+	uint32_t timeout=SD_TIMEOUT;
+    long long lsector=sector;
+    INTX_DISABLE();//关闭总中断(POLLING模式,严禁中断打断SDIO读写操作!!!)
+	sta=HAL_SD_WriteBlocks(&hsd1,(uint8_t*)buf,lsector,cnt,SD_TIMEOUT);//多个sector的写操作
 		
-		SDCardWriteStatus=0;
-		while(SD_GetCardState()){};		//等待SD卡空闲
-		sta=HAL_OK;
-	}
-} 
-//SDMMC1写完成回调函数
-void HAL_SD_TxCpltCallback(SD_HandleTypeDef *hsd)
-{
-	SDCardWriteStatus=1; //标记写完成
+	//等待SD卡写完
+	while(SD_GetCardState()!=SD_TRANSFER_OK)
+    {
+		if(timeout-- == 0)
+		{	
+			sta=SD_TRANSFER_BUSY;
+            break;
+		}
+    }    
+	INTX_ENABLE();//开启总中断
+    return sta;
 }
 
-//SDMMC1读完成回调函数
-void HAL_SD_RxCpltCallback(SD_HandleTypeDef *hsd)
-{
-	SDCardReadStatus=1;	//标记读完成
-}
+
 void read_sdinfo()
 {
 	SD_GetCardInfo(&SDCardInfo);

@@ -55,6 +55,7 @@ DSTATUS disk_initialize (
 	switch (pdrv) {
 	case SD_CARD :
 		MX_SDMMC1_SD_Init();
+		read_sdinfo();
 		result = 0;
 		// translate the reslut code here
 

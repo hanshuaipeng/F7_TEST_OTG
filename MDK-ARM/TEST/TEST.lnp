@@ -5,11 +5,11 @@
 "test\lcd.o"
 "test\w25q256.o"
 "test\malloc.o"
+"test\gfxsimulator.o"
 "test\main.o"
 "test\gpio.o"
 "test\dma.o"
 "test\fmc.o"
-"test\gfxsimulator.o"
 "test\ltdc.o"
 "test\quadspi.o"
 "test\sdmmc.o"
@@ -37,6 +37,7 @@
 "test\stm32f7xx_hal_tim.o"
 "test\stm32f7xx_hal_tim_ex.o"
 "test\stm32f7xx_hal_uart.o"
+"test\stm32f7xx_hal_uart_ex.o"
 "test\stm32f7xx_hal_rcc.o"
 "test\stm32f7xx_hal_rcc_ex.o"
 "test\stm32f7xx_hal_flash.o"
@@ -63,6 +64,6 @@
 "test\usbd_msc_data.o"
 "test\usbd_msc_scsi.o"
 --library_type=microlib --strict --scatter "TEST\TEST.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "TEST.map" -o TEST\TEST.axf

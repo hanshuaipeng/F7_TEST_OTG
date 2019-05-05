@@ -7,7 +7,7 @@ test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h
 test\stm32f7xx_it.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h
 test\stm32f7xx_it.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f767xx.h
 test\stm32f7xx_it.o: ../Drivers/CMSIS/Include/core_cm7.h
-test\stm32f7xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+test\stm32f7xx_it.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 test\stm32f7xx_it.o: ../Drivers/CMSIS/Include/cmsis_version.h
 test\stm32f7xx_it.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 test\stm32f7xx_it.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -15,7 +15,7 @@ test\stm32f7xx_it.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 test\stm32f7xx_it.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h
 test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
 test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-test\stm32f7xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+test\stm32f7xx_it.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h
 test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_exti.h
 test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h
@@ -45,7 +45,7 @@ test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h
 test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd.h
 test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h
 test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd_ex.h
-test\stm32f7xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+test\stm32f7xx_it.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 test\stm32f7xx_it.o: ../Inc/sdram.h
 test\stm32f7xx_it.o: ../Inc/main.h
 test\stm32f7xx_it.o: ../Inc/fmc.h
@@ -54,7 +54,7 @@ test\stm32f7xx_it.o: ../Inc/lcd.h
 test\stm32f7xx_it.o: ../Inc/ltdc.h
 test\stm32f7xx_it.o: ../Inc/w25q256.h
 test\stm32f7xx_it.o: ../Inc/quadspi.h
-test\stm32f7xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+test\stm32f7xx_it.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\stm32f7xx_it.o: ../Inc/malloc.h
 test\stm32f7xx_it.o: ..\FATFS\src\ff.h
 test\stm32f7xx_it.o: ..\FATFS\src\ffconf.h

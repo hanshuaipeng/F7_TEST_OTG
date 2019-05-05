@@ -29,9 +29,9 @@ SDRAM_HandleTypeDef hsdram1;
 /* FMC initialization function */
 void MX_FMC_Init(void)
 {
-  FMC_NAND_PCC_TimingTypeDef ComSpaceTiming;
-  FMC_NAND_PCC_TimingTypeDef AttSpaceTiming;
-  FMC_SDRAM_TimingTypeDef SdramTiming;
+  FMC_NAND_PCC_TimingTypeDef ComSpaceTiming = {0};
+  FMC_NAND_PCC_TimingTypeDef AttSpaceTiming = {0};
+  FMC_SDRAM_TimingTypeDef SdramTiming = {0};
 
   /** Perform the NAND1 memory initialization sequence
   */
@@ -104,7 +104,7 @@ static void HAL_FMC_MspInit(void){
   /* USER CODE BEGIN FMC_MspInit 0 */
 
   /* USER CODE END FMC_MspInit 0 */
-  GPIO_InitTypeDef GPIO_InitStruct;
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
   if (FMC_Initialized) {
     return;
   }
