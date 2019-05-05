@@ -118,7 +118,7 @@ int main(void)
   MX_LTDC_Init();
   MX_QUADSPI_Init();
   MX_SDMMC1_SD_Init();
-  MX_USB_DEVICE_Init();
+//  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
     SDRAM_Init();
 	
@@ -132,7 +132,7 @@ int main(void)
 	LTDC_ShowString(100,0,32,"F7 TEST");
 	
 	res=f_mount(&fs,"0:",1);
-//	read_sdinfo();
+	read_sdinfo();
 	if(res)
 	{
 		printf("mount error %d\r\n",res);

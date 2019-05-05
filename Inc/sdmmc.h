@@ -27,6 +27,9 @@
 #include "main.h"
 
 /* USER CODE BEGIN Includes */
+#define SD_TIMEOUT      	((uint32_t)100000000)       //超时时间
+#define SD_TRANSFER_OK     	((uint8_t)0x00)
+#define SD_TRANSFER_BUSY   	((uint8_t)0x01)
 
 /* USER CODE END Includes */
 
@@ -44,8 +47,6 @@ extern HAL_SD_CardInfoTypeDef  SDCardInfo;          //SD卡信息结构体
 uint8_t SD_GetCardInfo(HAL_SD_CardInfoTypeDef *cardinfo);
 uint8_t SD_ReadDisk(uint8_t* buf,uint32_t sector,uint32_t cnt);
 uint8_t SD_WriteDisk(uint8_t *buf,uint32_t sector,uint32_t cnt);
-uint8_t SD_ReadBlocks_DMA(uint8_t *buf,uint32_t sector,uint32_t cnt);
-uint8_t SD_WriteBlocks_DMA(uint8_t *buf,uint32_t sector,uint32_t cnt);
 void read_sdinfo(void);
 /* USER CODE END Prototypes */
 
