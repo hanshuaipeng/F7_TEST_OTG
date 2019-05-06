@@ -27,6 +27,10 @@ __align(4) uint8_t SDIO_DATA_BUFFER[512];
 //如果使用DMA的话下面两个变量用来标记SD卡读写是否完成
 static volatile uint8_t SDCardWriteStatus=0,SDCardReadStatus=0; 
 HAL_SD_CardInfoTypeDef SDCardInfo;
+#if SDMMC_DMA
+DMA_HandleTypeDef hdma_sdmmc1_rx;
+DMA_HandleTypeDef hdma_sdmmc1_tx;
+#endif
 /* USER CODE END 0 */
 
 SD_HandleTypeDef hsd1;
@@ -92,7 +96,60 @@ void HAL_SD_MspInit(SD_HandleTypeDef* sdHandle)
     HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /* USER CODE BEGIN SDMMC1_MspInit 1 */
-	
+#if SDMMC_DMA
+	 /* SDMMC1 DMA Init */
+    /* SDMMC1_RX Init */
+    hdma_sdmmc1_rx.Instance = DMA2_Stream3;
+    hdma_sdmmc1_rx.Init.Channel = DMA_CHANNEL_4;
+    hdma_sdmmc1_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_sdmmc1_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_sdmmc1_rx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_sdmmc1_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+    hdma_sdmmc1_rx.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+    hdma_sdmmc1_rx.Init.Mode = DMA_PFCTRL;
+    hdma_sdmmc1_rx.Init.Priority = DMA_PRIORITY_VERY_HIGH;
+    hdma_sdmmc1_rx.Init.FIFOMode = DMA_FIFOMODE_ENABLE;
+    hdma_sdmmc1_rx.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_FULL;
+    hdma_sdmmc1_rx.Init.MemBurst = DMA_MBURST_INC4;
+    hdma_sdmmc1_rx.Init.PeriphBurst = DMA_PBURST_INC4;
+    if (HAL_DMA_Init(&hdma_sdmmc1_rx) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(sdHandle,hdmarx,hdma_sdmmc1_rx);
+
+    /* SDMMC1_TX Init */
+    hdma_sdmmc1_tx.Instance = DMA2_Stream6;
+    hdma_sdmmc1_tx.Init.Channel = DMA_CHANNEL_4;
+    hdma_sdmmc1_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+    hdma_sdmmc1_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_sdmmc1_tx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_sdmmc1_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+    hdma_sdmmc1_tx.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+    hdma_sdmmc1_tx.Init.Mode = DMA_PFCTRL;
+    hdma_sdmmc1_tx.Init.Priority = DMA_PRIORITY_VERY_HIGH;
+    hdma_sdmmc1_tx.Init.FIFOMode = DMA_FIFOMODE_ENABLE;
+    hdma_sdmmc1_tx.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_FULL;
+    hdma_sdmmc1_tx.Init.MemBurst = DMA_MBURST_INC4;
+    hdma_sdmmc1_tx.Init.PeriphBurst = DMA_PBURST_INC4;
+    if (HAL_DMA_Init(&hdma_sdmmc1_tx) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(sdHandle,hdmatx,hdma_sdmmc1_tx);
+
+    /* SDMMC1 interrupt Init */
+    HAL_NVIC_SetPriority(SDMMC1_IRQn, 1, 0);
+    HAL_NVIC_EnableIRQ(SDMMC1_IRQn);
+	/* DMA2_Stream3_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 2, 0);
+	HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
+	/* DMA2_Stream6_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(DMA2_Stream6_IRQn, 2, 0);
+	HAL_NVIC_EnableIRQ(DMA2_Stream6_IRQn);
+#endif
   /* USER CODE END SDMMC1_MspInit 1 */
   }
 }
@@ -122,7 +179,13 @@ void HAL_SD_MspDeInit(SD_HandleTypeDef* sdHandle)
     HAL_GPIO_DeInit(GPIOD, GPIO_PIN_2);
 
   /* USER CODE BEGIN SDMMC1_MspDeInit 1 */
+#if SDMMC_DMA
+	HAL_DMA_DeInit(sdHandle->hdmarx);
+	HAL_DMA_DeInit(sdHandle->hdmatx);
 
+	/* SDMMC1 interrupt Deinit */
+	HAL_NVIC_DisableIRQ(SDMMC1_IRQn);
+#endif
   /* USER CODE END SDMMC1_MspDeInit 1 */
   }
 } 
@@ -144,6 +207,78 @@ uint8_t SD_GetCardState(void)
 {
   return((HAL_SD_GetCardState(&hsd1)==HAL_SD_CARD_TRANSFER )?SD_TRANSFER_OK:SD_TRANSFER_BUSY);
 }
+#if SDMMC_DMA
+
+//读SD卡
+//buf:读数据缓存区
+//sector:扇区地址
+//cnt:扇区个数	
+//返回值:错误状态;0,正常;其他,错误代码;
+uint8_t SD_ReadDisk(uint8_t* buf,uint32_t sector,uint32_t cnt)
+{
+    uint8_t sta=HAL_ERROR;
+	SDCardReadStatus=0;
+	SCB_CleanInvalidateDCache();//cache一致性
+	if(HAL_SD_ReadBlocks_DMA(&hsd1,(uint8_t*)buf,(uint32_t)sector,(uint32_t)cnt)==HAL_OK)
+	{
+		while(SDCardReadStatus==0){};	//等待读完成
+		
+		SDCardReadStatus=0;
+		while(SD_GetCardState()){};		//等待SD卡空闲
+		sta=HAL_OK;
+	}
+	SCB_CleanInvalidateDCache();//cache一致性
+    return sta;
+}  
+
+//写SD卡
+//buf:写数据缓存区
+//sector:扇区地址
+//cnt:扇区个数	
+//返回值:错误状态;0,正常;其他,错误代码;	
+uint8_t SD_WriteDisk(uint8_t *buf,uint32_t sector,uint32_t cnt)
+{   
+    uint8_t sta=HAL_ERROR;
+	
+	SDCardWriteStatus=0;
+	SCB_CleanInvalidateDCache();//cache一致性
+	if(HAL_SD_WriteBlocks_DMA(&hsd1,(uint8_t*)buf,(uint32_t)sector,(uint32_t)cnt)==HAL_OK)
+	{
+		while(SDCardWriteStatus==0){};	//等待写完成
+		
+		SDCardWriteStatus=0;
+		while(SD_GetCardState()){};		//等待SD卡空闲
+		sta=HAL_OK;
+	}
+	SCB_CleanInvalidateDCache();//cache一致性	
+    return sta;
+} 
+
+//SDMMC1中断服务函数
+void SDMMC1_IRQHandler(void)
+{
+    HAL_SD_IRQHandler(&hsd1);
+}
+void DMA2_Stream3_IRQHandler(void)
+{
+  HAL_DMA_IRQHandler(&hdma_sdmmc1_rx);
+}
+void DMA2_Stream6_IRQHandler(void)
+{
+  HAL_DMA_IRQHandler(&hdma_sdmmc1_tx);
+}
+//SDMMC1写完成回调函数
+void HAL_SD_TxCpltCallback(SD_HandleTypeDef *hsd)
+{
+	SDCardWriteStatus=1; //标记写完成
+}
+
+//SDMMC1读完成回调函数
+void HAL_SD_RxCpltCallback(SD_HandleTypeDef *hsd)
+{
+	SDCardReadStatus=1;	//标记读完成
+}
+#else
 
 //关闭所有中断(但是不包括fault和NMI中断)
 __asm void INTX_DISABLE(void)
@@ -209,7 +344,7 @@ uint8_t SD_WriteDisk(uint8_t *buf,uint32_t sector,uint32_t cnt)
 	INTX_ENABLE();//开启总中断
     return sta;
 }
-
+#endif
 
 void read_sdinfo()
 {

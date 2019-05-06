@@ -154,7 +154,7 @@ int main(void)
       {
           case KEY0_PRES:
 			 
-			  res=f_open(&fil,"0:aaa.txt",FA_CREATE_ALWAYS|FA_WRITE);
+			  res=f_open(&fil,"0:tttt.txt",FA_CREATE_ALWAYS|FA_WRITE);
 				if(res)
 				{
 					printf("open error %d\r\n",res);
