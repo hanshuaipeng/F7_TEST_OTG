@@ -60,3 +60,4 @@ test\diskio.o: ../Inc/w25q256.h
 test\diskio.o: ../Inc/quadspi.h
 test\diskio.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\diskio.o: ../Inc/malloc.h
+test\diskio.o: ../Inc/mpu.h

@@ -60,6 +60,7 @@ test\usbd_ioreq.o: ../Inc/ltdc.h
 test\usbd_ioreq.o: ../Inc/w25q256.h
 test\usbd_ioreq.o: ../Inc/quadspi.h
 test\usbd_ioreq.o: ../Inc/malloc.h
+test\usbd_ioreq.o: ../Inc/mpu.h
 test\usbd_ioreq.o: ..\FATFS\src\ff.h
 test\usbd_ioreq.o: ..\FATFS\src\ffconf.h
 test\usbd_ioreq.o: ..\FATFS\src\diskio.h

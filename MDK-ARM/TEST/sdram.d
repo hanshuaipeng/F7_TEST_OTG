@@ -56,6 +56,7 @@ test\sdram.o: ../Inc/w25q256.h
 test\sdram.o: ../Inc/quadspi.h
 test\sdram.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\sdram.o: ../Inc/malloc.h
+test\sdram.o: ../Inc/mpu.h
 test\sdram.o: ..\FATFS\src\ff.h
 test\sdram.o: ..\FATFS\src\ffconf.h
 test\sdram.o: ..\FATFS\src\diskio.h

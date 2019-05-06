@@ -57,6 +57,7 @@ test\quadspi.o: ../Inc/w25q256.h
 test\quadspi.o: ../Inc/quadspi.h
 test\quadspi.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\quadspi.o: ../Inc/malloc.h
+test\quadspi.o: ../Inc/mpu.h
 test\quadspi.o: ..\FATFS\src\ff.h
 test\quadspi.o: ..\FATFS\src\ffconf.h
 test\quadspi.o: ..\FATFS\src\diskio.h

@@ -59,6 +59,7 @@ test\usbd_core.o: ../Inc/ltdc.h
 test\usbd_core.o: ../Inc/w25q256.h
 test\usbd_core.o: ../Inc/quadspi.h
 test\usbd_core.o: ../Inc/malloc.h
+test\usbd_core.o: ../Inc/mpu.h
 test\usbd_core.o: ..\FATFS\src\ff.h
 test\usbd_core.o: ..\FATFS\src\ffconf.h
 test\usbd_core.o: ..\FATFS\src\diskio.h

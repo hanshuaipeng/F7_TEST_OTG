@@ -61,6 +61,7 @@ test\usbd_msc.o: ../Inc/ltdc.h
 test\usbd_msc.o: ../Inc/w25q256.h
 test\usbd_msc.o: ../Inc/quadspi.h
 test\usbd_msc.o: ../Inc/malloc.h
+test\usbd_msc.o: ../Inc/mpu.h
 test\usbd_msc.o: ..\FATFS\src\ff.h
 test\usbd_msc.o: ..\FATFS\src\ffconf.h
 test\usbd_msc.o: ..\FATFS\src\diskio.h

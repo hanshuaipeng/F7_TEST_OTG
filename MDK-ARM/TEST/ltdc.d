@@ -57,6 +57,7 @@ test\ltdc.o: ../Inc/w25q256.h
 test\ltdc.o: ../Inc/quadspi.h
 test\ltdc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\ltdc.o: ../Inc/malloc.h
+test\ltdc.o: ../Inc/mpu.h
 test\ltdc.o: ..\FATFS\src\ff.h
 test\ltdc.o: ..\FATFS\src\ffconf.h
 test\ltdc.o: ..\FATFS\src\diskio.h

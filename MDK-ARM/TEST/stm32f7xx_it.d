@@ -56,6 +56,7 @@ test\stm32f7xx_it.o: ../Inc/w25q256.h
 test\stm32f7xx_it.o: ../Inc/quadspi.h
 test\stm32f7xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\stm32f7xx_it.o: ../Inc/malloc.h
+test\stm32f7xx_it.o: ../Inc/mpu.h
 test\stm32f7xx_it.o: ..\FATFS\src\ff.h
 test\stm32f7xx_it.o: ..\FATFS\src\ffconf.h
 test\stm32f7xx_it.o: ..\FATFS\src\diskio.h

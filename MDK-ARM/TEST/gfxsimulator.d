@@ -57,6 +57,7 @@ test\gfxsimulator.o: ../Inc/w25q256.h
 test\gfxsimulator.o: ../Inc/quadspi.h
 test\gfxsimulator.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\gfxsimulator.o: ../Inc/malloc.h
+test\gfxsimulator.o: ../Inc/mpu.h
 test\gfxsimulator.o: ..\FATFS\src\ff.h
 test\gfxsimulator.o: ..\FATFS\src\ffconf.h
 test\gfxsimulator.o: ..\FATFS\src\diskio.h

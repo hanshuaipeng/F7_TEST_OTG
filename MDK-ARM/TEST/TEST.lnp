@@ -21,6 +21,7 @@
 "test\usbd_storage_if.o"
 "test\stm32f7xx_it.o"
 "test\stm32f7xx_hal_msp.o"
+"test\mpu.o"
 "test\stm32f7xx_hal_pcd.o"
 "test\stm32f7xx_hal_pcd_ex.o"
 "test\stm32f7xx_ll_usb.o"

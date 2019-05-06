@@ -62,6 +62,7 @@ test\usbd_storage_if.o: ../Inc/ltdc.h
 test\usbd_storage_if.o: ../Inc/w25q256.h
 test\usbd_storage_if.o: ../Inc/quadspi.h
 test\usbd_storage_if.o: ../Inc/malloc.h
+test\usbd_storage_if.o: ../Inc/mpu.h
 test\usbd_storage_if.o: ..\FATFS\src\ff.h
 test\usbd_storage_if.o: ..\FATFS\src\ffconf.h
 test\usbd_storage_if.o: ..\FATFS\src\diskio.h

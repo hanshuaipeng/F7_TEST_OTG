@@ -57,6 +57,7 @@ test\tim.o: ../Inc/w25q256.h
 test\tim.o: ../Inc/quadspi.h
 test\tim.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\tim.o: ../Inc/malloc.h
+test\tim.o: ../Inc/mpu.h
 test\tim.o: ..\FATFS\src\ff.h
 test\tim.o: ..\FATFS\src\ffconf.h
 test\tim.o: ..\FATFS\src\diskio.h

@@ -120,7 +120,7 @@ int main(void)
 //  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
     SDRAM_Init();
-	
+//	MPU_Memory_Protection();//MPU内存保护配置
 	W25QXX_Init();
     LTDC_LCD_Init();
 	my_mem_init(SRAMIN);		    //初始化内部内存池

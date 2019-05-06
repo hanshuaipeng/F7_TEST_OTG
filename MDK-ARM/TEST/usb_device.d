@@ -60,6 +60,7 @@ test\usb_device.o: ../Inc/ltdc.h
 test\usb_device.o: ../Inc/w25q256.h
 test\usb_device.o: ../Inc/quadspi.h
 test\usb_device.o: ../Inc/malloc.h
+test\usb_device.o: ../Inc/mpu.h
 test\usb_device.o: ..\FATFS\src\ff.h
 test\usb_device.o: ..\FATFS\src\ffconf.h
 test\usb_device.o: ..\FATFS\src\diskio.h

@@ -57,6 +57,7 @@ test\key.o: ../Inc/w25q256.h
 test\key.o: ../Inc/quadspi.h
 test\key.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\key.o: ../Inc/malloc.h
+test\key.o: ../Inc/mpu.h
 test\key.o: ..\FATFS\src\ff.h
 test\key.o: ..\FATFS\src\ffconf.h
 test\key.o: ..\FATFS\src\diskio.h

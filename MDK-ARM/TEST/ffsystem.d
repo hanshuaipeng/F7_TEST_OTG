@@ -59,4 +59,5 @@ test\ffsystem.o: ../Inc/w25q256.h
 test\ffsystem.o: ../Inc/quadspi.h
 test\ffsystem.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\ffsystem.o: ../Inc/malloc.h
+test\ffsystem.o: ../Inc/mpu.h
 test\ffsystem.o: ..\FATFS\src\diskio.h

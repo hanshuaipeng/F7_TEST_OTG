@@ -57,6 +57,7 @@ test\gpio.o: ../Inc/w25q256.h
 test\gpio.o: ../Inc/quadspi.h
 test\gpio.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\gpio.o: ../Inc/malloc.h
+test\gpio.o: ../Inc/mpu.h
 test\gpio.o: ..\FATFS\src\ff.h
 test\gpio.o: ..\FATFS\src\ffconf.h
 test\gpio.o: ..\FATFS\src\diskio.h

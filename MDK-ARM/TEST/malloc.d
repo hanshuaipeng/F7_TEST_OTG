@@ -57,6 +57,7 @@ test\malloc.o: ../Inc/w25q256.h
 test\malloc.o: ../Inc/quadspi.h
 test\malloc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\malloc.o: ../Inc/malloc.h
+test\malloc.o: ../Inc/mpu.h
 test\malloc.o: ..\FATFS\src\ff.h
 test\malloc.o: ..\FATFS\src\ffconf.h
 test\malloc.o: ..\FATFS\src\diskio.h

@@ -60,6 +60,7 @@ test\usbd_msc_bot.o: ../Inc/ltdc.h
 test\usbd_msc_bot.o: ../Inc/w25q256.h
 test\usbd_msc_bot.o: ../Inc/quadspi.h
 test\usbd_msc_bot.o: ../Inc/malloc.h
+test\usbd_msc_bot.o: ../Inc/mpu.h
 test\usbd_msc_bot.o: ..\FATFS\src\ff.h
 test\usbd_msc_bot.o: ..\FATFS\src\ffconf.h
 test\usbd_msc_bot.o: ..\FATFS\src\diskio.h

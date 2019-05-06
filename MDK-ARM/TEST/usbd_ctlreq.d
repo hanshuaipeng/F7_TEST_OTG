@@ -60,6 +60,7 @@ test\usbd_ctlreq.o: ../Inc/ltdc.h
 test\usbd_ctlreq.o: ../Inc/w25q256.h
 test\usbd_ctlreq.o: ../Inc/quadspi.h
 test\usbd_ctlreq.o: ../Inc/malloc.h
+test\usbd_ctlreq.o: ../Inc/mpu.h
 test\usbd_ctlreq.o: ..\FATFS\src\ff.h
 test\usbd_ctlreq.o: ..\FATFS\src\ffconf.h
 test\usbd_ctlreq.o: ..\FATFS\src\diskio.h

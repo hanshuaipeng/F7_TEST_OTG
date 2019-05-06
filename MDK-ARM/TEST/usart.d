@@ -57,6 +57,7 @@ test\usart.o: ../Inc/w25q256.h
 test\usart.o: ../Inc/quadspi.h
 test\usart.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\usart.o: ../Inc/malloc.h
+test\usart.o: ../Inc/mpu.h
 test\usart.o: ..\FATFS\src\ff.h
 test\usart.o: ..\FATFS\src\ffconf.h
 test\usart.o: ..\FATFS\src\diskio.h

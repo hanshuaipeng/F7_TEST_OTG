@@ -57,6 +57,7 @@ test\dma.o: ../Inc/w25q256.h
 test\dma.o: ../Inc/quadspi.h
 test\dma.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\dma.o: ../Inc/malloc.h
+test\dma.o: ../Inc/mpu.h
 test\dma.o: ..\FATFS\src\ff.h
 test\dma.o: ..\FATFS\src\ffconf.h
 test\dma.o: ..\FATFS\src\diskio.h

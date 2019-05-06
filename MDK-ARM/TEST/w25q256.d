@@ -56,6 +56,7 @@ test\w25q256.o: ../Inc/ltdc.h
 test\w25q256.o: ../Inc/w25q256.h
 test\w25q256.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\w25q256.o: ../Inc/malloc.h
+test\w25q256.o: ../Inc/mpu.h
 test\w25q256.o: ..\FATFS\src\ff.h
 test\w25q256.o: ..\FATFS\src\ffconf.h
 test\w25q256.o: ..\FATFS\src\diskio.h

@@ -57,6 +57,7 @@ test\sdmmc.o: ../Inc/w25q256.h
 test\sdmmc.o: ../Inc/quadspi.h
 test\sdmmc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\sdmmc.o: ../Inc/malloc.h
+test\sdmmc.o: ../Inc/mpu.h
 test\sdmmc.o: ..\FATFS\src\ff.h
 test\sdmmc.o: ..\FATFS\src\ffconf.h
 test\sdmmc.o: ..\FATFS\src\diskio.h

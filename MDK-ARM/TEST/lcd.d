@@ -56,6 +56,7 @@ test\lcd.o: ../Inc/w25q256.h
 test\lcd.o: ../Inc/quadspi.h
 test\lcd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\lcd.o: ../Inc/malloc.h
+test\lcd.o: ../Inc/mpu.h
 test\lcd.o: ..\FATFS\src\ff.h
 test\lcd.o: ..\FATFS\src\ffconf.h
 test\lcd.o: ..\FATFS\src\diskio.h
