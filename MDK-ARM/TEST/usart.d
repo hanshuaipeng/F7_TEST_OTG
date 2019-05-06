@@ -8,7 +8,7 @@ test\usart.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h
 test\usart.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h
 test\usart.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f767xx.h
 test\usart.o: ../Drivers/CMSIS/Include/core_cm7.h
-test\usart.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+test\usart.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 test\usart.o: ../Drivers/CMSIS/Include/cmsis_version.h
 test\usart.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 test\usart.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -16,7 +16,7 @@ test\usart.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 test\usart.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h
 test\usart.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
 test\usart.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-test\usart.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+test\usart.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 test\usart.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h
 test\usart.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_exti.h
 test\usart.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h
@@ -46,7 +46,7 @@ test\usart.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h
 test\usart.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd.h
 test\usart.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h
 test\usart.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd_ex.h
-test\usart.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+test\usart.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 test\usart.o: ../Inc/sdram.h
 test\usart.o: ../Inc/main.h
 test\usart.o: ../Inc/fmc.h
@@ -55,7 +55,7 @@ test\usart.o: ../Inc/lcd.h
 test\usart.o: ../Inc/ltdc.h
 test\usart.o: ../Inc/w25q256.h
 test\usart.o: ../Inc/quadspi.h
-test\usart.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+test\usart.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 test\usart.o: ../Inc/malloc.h
 test\usart.o: ..\FATFS\src\ff.h
 test\usart.o: ..\FATFS\src\ffconf.h
