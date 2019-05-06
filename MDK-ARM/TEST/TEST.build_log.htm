@@ -3,63 +3,61 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¦ÌVision V5.27.0.0
-Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: ASD ASD, ASD, LIC=W9663-A1QZ7-9YEVW-QPLV6-USX4G-PUY7Z
+IDE-Version: ¦ÌVision V5.23.0.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 444 oooop@ii.com, 5555, LIC=W9612-9E0LD-TJ86H-WLFAC-J5CII-RXT55
  
 Tool Versions:
-Toolchain:       MDK-ARM Professional  Version: 5.27.0.0
-Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 6 (build 750)
-Assembler:       Armasm.exe V5.06 update 6 (build 750)
-Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
-Library Manager: ArmAr.exe V5.06 update 6 (build 750)
-Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
-CPU DLL:         SARMCM3.DLL V5.27.0.0
-Dialog DLL:      DCM.DLL V1.17.2.0
-Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.5.0
-Dialog DLL:      TCM.DLL V1.36.1.0
+Toolchain:       MDK-ARM Professional  Version: 5.23
+Toolchain Path:  d:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 4 (build 422)
+Assembler:       Armasm.exe V5.06 update 4 (build 422)
+Linker/Locator:  ArmLink.exe V5.06 update 4 (build 422)
+Library Manager: ArmAr.exe V5.06 update 4 (build 422)
+Hex Converter:   FromElf.exe V5.06 update 4 (build 422)
+CPU DLL:         SARMCM3.DLL V5.23
+Dialog DLL:      DCM.DLL V1.15.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
+Dialog DLL:      TCM.DLL V1.27.0.0
  
 <h2>Project:</h2>
-F:\F7_TEST\MDK-ARM\TEST.uvprojx
+E:\F7TEST\F7_TEST\MDK-ARM\TEST.uvprojx
 Project File Date:  05/06/2019
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 4 (build 422)', folder: 'd:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'TEST'
+compiling diskio.c...
 compiling main.c...
+../Src/main.c(78): warning:  #177-D: variable "fs"  was declared but never referenced
+  	FATFS fs;
 ../Src/main.c(84): warning:  #177-D: variable "buf"  was declared but never referenced
   	uint8_t *buf;
 ../Src/main.c(85): warning:  #177-D: variable "sd_size"  was declared but never referenced
   	uint32_t sd_size;
-../Src/main.c: 2 warnings, 0 errors
+../Src/main.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=47668 RO-data=193944 RW-data=96 ZI-data=33752384  
+Program Size: Code=54452 RO-data=194004 RW-data=388 ZI-data=33753596  
 FromELF: creating hex file...
-"TEST\TEST.axf" - 0 Error(s), 2 Warning(s).
+"TEST\TEST.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.4.0.pack
-                ARM.CMSIS.5.4.0
+                http://www.keil.com/pack/ARM.CMSIS.5.0.1.pack
+                ARM::CMSIS:CORE:5.0.1
                 CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.1.2
-
-Package Vendor: Keil
-                http://www.keil.com/pack/Keil.STM32F7xx_DFP.2.11.0.pack
-                Keil.STM32F7xx_DFP.2.11.0
-                STMicroelectronics STM32F7 Series Device Support, Drivers and Examples
+   * Component: CORE Version: 5.0.1
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_TEST
-  D:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
-  D:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include
+  d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
+  d:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.1.2
-Build Time Elapsed:  00:00:05
+   * Component: ARM::CMSIS:CORE:5.0.1
+Build Time Elapsed:  00:00:11
 </pre>
 </body>
 </html>
